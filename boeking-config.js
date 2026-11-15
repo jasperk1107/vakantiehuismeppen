@@ -4,7 +4,7 @@
 */
 window.BOEKING = {
   // Prijs per nacht, in euro's. Beddengoed en schoonmaak zijn inbegrepen.
-  prijsPerNacht: 110,
+  prijsPerNacht: 105,
 
   // Prijs voor een hele week (7 nachten). Elke volle week in een verblijf rekent de kalender
   // tegen deze prijs, de nachten die overblijven tegen de nachtprijs.
