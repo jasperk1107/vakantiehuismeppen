@@ -3,8 +3,12 @@
   Pas dit bestand aan en zet het online, dan verandert de kalender mee.
 */
 window.BOEKING = {
-  // Standaardprijs per nacht, in euro's.
-  prijsPerNacht: 119,
+  // Prijs per nacht, in euro's. Beddengoed en schoonmaak zijn inbegrepen.
+  prijsPerNacht: 110,
+
+  // Prijs voor een hele week (7 nachten). Elke volle week in een verblijf rekent de kalender
+  // tegen deze prijs, de nachten die overblijven tegen de nachtprijs.
+  weekprijs: 650,
 
   // Afwijkende prijs voor een losse nacht. De datum is de dag van de avond waarop je slaapt.
   // Voorbeeld: { "2026-12-24": 149, "2026-12-25": 149 }
@@ -20,10 +24,8 @@ window.BOEKING = {
   // Hoe ver vooruit de kalender open staat, in maanden.
   maandenVooruit: 12,
 
-  // Waar een aanvraag heen gaat.
-  // Leeg endpoint = de aanvraag opent als kant-en-klaar bericht in WhatsApp naar onderstaand nummer.
-  // Met endpoint (een formulierdienst die JSON aanneemt) wordt de aanvraag op de pagina zelf verstuurd.
-  endpoint: "",
+  // Waar een aanvraag heen gaat: als kant-en-klaar bericht via WhatsApp of per e-mail.
   whatsapp: "31622561676",
-  telefoon: "06 22561676"
+  telefoon: "06 22561676",
+  email: "marja@pplaatkoeling.nl"
 };

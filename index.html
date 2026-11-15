@@ -4,11 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vakantiehuisje 'Even naar Meppen' | Brinken 9, Meppen (Drenthe)</title>
-<meta name="description" content="Logeer in de oude ijssalon in het hartje van Meppen, een authentiek Drents dorpje. Pelletkachel, open keuken en eigen terras. € 119 per nacht, bekijk de beschikbaarheid.">
+<meta name="description" content="Vakantiehuisje voor twee in de oude ijssalon, in het hartje van Meppen, een authentiek Drents dorpje. Airco, pelletkachel en eigen terras. € 110 per nacht, € 650 per week.">
 <meta property="og:title" content="Vakantiehuisje 'Even naar Meppen'">
 <meta property="og:description" content="Logeer in de oude ijssalon in het hartje van Meppen, een authentiek Drents dorpje.">
 <meta property="og:image" content="https://vakantiehuismeppen.nl/img/foto-03.jpg">
 <link rel="canonical" href="https://vakantiehuismeppen.nl/">
+<link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -19,7 +20,9 @@
   "@type": "LodgingBusiness",
   "name": "Vakantiehuisje Even naar Meppen",
   "url": "https://vakantiehuismeppen.nl/",
-  "priceRange": "€ 119 per nacht",
+  "priceRange": "€ 110 per nacht, € 650 per week",
+  "email": "marja@pplaatkoeling.nl",
+  "petsAllowed": false,
   "telephone": "+31622561676",
   "address": {
     "@type": "PostalAddress",
@@ -457,8 +460,18 @@
   .closing .btn-primary:hover { background: var(--cream); }
   .closing small { display: block; margin-top: 18px; opacity: .85; font-size: .95rem; }
 
-  footer { padding: 30px 0 110px; font-size: .9rem; color: var(--ink-soft); }
-  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+  .site-footer { background: #1f2322; color: rgba(243, 239, 228, .82); font-size: .97rem; padding: clamp(48px, 6vw, 76px) 0 28px; }
+  .site-footer a { color: inherit; text-decoration: underline; text-decoration-color: rgba(243, 239, 228, .35); text-underline-offset: 4px; transition: color .25s var(--ease), text-decoration-color .25s var(--ease); }
+  .site-footer a:hover { color: #fff; text-decoration-color: #fff; }
+  .f-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.2fr 1.2fr; gap: clamp(28px, 4vw, 64px); padding-bottom: clamp(36px, 5vw, 56px); }
+  .f-brand .wordmark { color: #f3efe4; font-size: 1.6rem; text-decoration: none; }
+  .f-brand p { margin: 14px 0 0; max-width: 26em; }
+  .site-footer h3 { font-family: var(--body); font-size: .97rem; font-weight: 600; letter-spacing: 0; color: #f3efe4; margin-bottom: 14px; }
+  .site-footer address { font-style: normal; margin-bottom: 12px; }
+  .site-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .f-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 28px; padding-top: 22px; border-top: 1px solid rgba(243, 239, 228, .16); font-size: .9rem; color: rgba(243, 239, 228, .62); }
+  .f-bottom nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+  .f-bottom a { text-decoration: none; }
 
   /* ---------- belbalk mobiel ---------- */
   .callbar {
@@ -508,6 +521,7 @@
     .hero-art { padding: 0 0 56px 26px; max-width: 520px; margin-inline: auto; width: 100%; }
     .stamp, .stamp-core { width: 108px; height: 108px; right: -6px; }
     .stamp-core span { width: 60px; height: 60px; font-size: 1.25rem; }
+    .stamp-core img { width: 64px; height: 64px; }
     .facts ul { grid-template-columns: repeat(2, 1fr); }
     .facts li { padding: 20px 16px; }
     .facts li:nth-child(odd) { border-left: 0; padding-left: 0; }
@@ -548,6 +562,138 @@
     .cal-top { flex-direction: column-reverse; align-items: flex-start; }
     .hero-cta .btn { width: 100%; justify-content: center; }
   }
+  /* ---------- whatsapp-knop en logo ---------- */
+  .btn-wa { background: #128c7e; color: #fff; box-shadow: 0 10px 22px -14px rgba(18, 140, 126, .9); }
+  .btn-wa:hover { background: #0e7267; transform: translateY(-1px); }
+  .btn svg[fill="currentColor"] { width: 19px; height: 19px; }
+  .btn:hover svg[fill="currentColor"] { transform: none; }
+  .wa-short { display: none; }
+  .stamp-core img { width: 80px; height: 80px; border-radius: 50%; background: #fff; }
+  .nonas { float: left; width: 112px; height: 112px; border-radius: 50%; margin: 2px 22px 8px 0; shape-outside: circle(50%); border: 1px solid var(--line); background: #fff; }
+
+  /* ---------- galerij ---------- */
+  [data-full] { cursor: zoom-in; }
+  .gallery { position: relative; }
+  .g-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: 236px 236px; gap: 8px; border-radius: 22px; overflow: hidden; }
+  .g-tile { position: relative; overflow: hidden; border: 0; padding: 0; margin: 0; background: var(--line); font: inherit; color: inherit; }
+  .g-tile:first-child { grid-column: span 2; grid-row: span 2; }
+  .g-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease), filter .4s var(--ease); }
+  .g-tile:hover img { transform: scale(1.04); filter: brightness(.94); }
+  .g-tile:focus-visible { outline: 3px solid var(--petrol); outline-offset: -3px; }
+  .g-chip {
+    position: absolute; left: 12px; bottom: 12px;
+    padding: 6px 13px; border-radius: 999px;
+    font-size: .9rem; font-weight: 600; color: var(--ink);
+    background: rgba(251, 248, 241, .78);
+    -webkit-backdrop-filter: blur(12px) saturate(160%); backdrop-filter: blur(12px) saturate(160%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8), 0 6px 14px -8px rgba(36, 40, 42, .5);
+  }
+  .g-all {
+    position: absolute; right: 16px; bottom: 16px;
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(36, 40, 42, .18);
+    background: var(--paper); color: var(--ink);
+    font: 600 .97rem var(--body); cursor: pointer;
+    box-shadow: 0 12px 26px -14px rgba(36, 40, 42, .7);
+    transition: transform .3s var(--ease), background-color .3s var(--ease), color .3s var(--ease);
+  }
+  .g-all:hover { background: var(--ink); color: var(--paper); }
+  .g-all:active { transform: scale(.97); }
+  .g-all svg { width: 17px; height: 17px; }
+
+  /* ---------- fotoviewer ---------- */
+  dialog.viewer {
+    width: 100vw; height: 100dvh; max-width: none; max-height: none;
+    margin: 0; padding: 0; border: 0;
+    background: #171a19; color: #f3efe4;
+  }
+  dialog.viewer[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+  dialog.viewer::backdrop { background: #171a19; }
+  .v-top { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; }
+  .v-count { font-size: .97rem; font-variant-numeric: tabular-nums; color: rgba(243, 239, 228, .8); }
+  .v-btn {
+    width: 46px; height: 46px; flex: none; border-radius: 50%;
+    border: 1px solid rgba(243, 239, 228, .28); background: rgba(243, 239, 228, .08); color: inherit;
+    display: grid; place-items: center; cursor: pointer;
+    transition: background-color .25s var(--ease), transform .25s var(--ease);
+  }
+  .v-btn:hover { background: rgba(243, 239, 228, .2); }
+  .v-btn:active { transform: scale(.94); }
+  .v-btn svg { width: 20px; height: 20px; }
+  .v-stage { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 14px; padding: 0 18px; min-height: 0; }
+  .v-fig { margin: 0; height: 100%; min-height: 0; display: grid; grid-template-rows: minmax(0, 1fr) auto; justify-items: center; gap: 12px; }
+  .v-fig img { max-width: 100%; max-height: 100%; min-height: 0; width: auto; height: auto; object-fit: contain; border-radius: 10px; align-self: center; }
+  .v-fig figcaption { text-align: center; font-size: 1rem; color: rgba(243, 239, 228, .88); min-height: 1.6em; }
+  .v-thumbs { display: flex; gap: 8px; padding: 14px 18px 18px; overflow-x: auto; justify-content: safe center; scrollbar-width: none; }
+  .v-thumbs::-webkit-scrollbar { display: none; }
+  .v-thumbs button { flex: none; width: 72px; height: 54px; padding: 0; border: 2px solid transparent; border-radius: 8px; overflow: hidden; background: none; cursor: pointer; opacity: .5; transition: opacity .25s var(--ease), border-color .25s var(--ease); }
+  .v-thumbs button:hover { opacity: .85; }
+  .v-thumbs button[aria-current="true"] { opacity: 1; border-color: #f3efe4; }
+  .v-thumbs img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ---------- reviews ---------- */
+  .reviews { padding-bottom: 0; }
+  .rev-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 40px; margin-bottom: 34px; }
+  .rev-score { margin: 0; display: flex; align-items: baseline; gap: 10px; color: var(--ink-soft); }
+  .rev-score strong { font: 600 2.4rem var(--display); color: var(--ink); letter-spacing: -.02em; }
+  .rev-note { margin: 0 0 22px; padding: 12px 16px; border: 1.5px dashed var(--oak); border-radius: 12px; background: rgba(182, 127, 67, .08); font-size: .95rem; max-width: none; }
+  .rev-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px; }
+  .rev { margin: 0; padding: 26px; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); display: grid; gap: 14px; align-content: start; }
+  .rev-who { display: flex; align-items: center; gap: 12px; }
+  .rev-avatar { width: 44px; height: 44px; flex: none; border-radius: 50%; background: var(--sage); color: #2d4329; display: grid; place-items: center; font: 600 1.15rem var(--display); }
+  .rev-name { font-weight: 600; line-height: 1.25; }
+  .rev-meta { font-size: .88rem; color: var(--ink-soft); }
+  .rev-stars { display: flex; gap: 2px; color: var(--oak); }
+  .rev-stars svg { width: 17px; height: 17px; }
+  .rev-stars .off { color: var(--line); }
+  .rev blockquote { margin: 0; color: #363b3c; }
+  .rev-badge { justify-self: start; padding: 3px 10px; border-radius: 999px; background: #ffe3ea; color: #9c2c4b; font-size: .82rem; font-weight: 600; }
+
+  .around-text { margin: 18px 0 0; max-width: 40em; color: #2c3331; }
+  .know { margin-top: 34px; padding-top: 26px; border-top: 1px solid var(--line); }
+  .know h3 { font-size: 1.25rem; margin-bottom: 12px; }
+  .know ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; color: #363b3c; }
+  .know li { display: flex; gap: 12px; align-items: flex-start; }
+  .know li::before { content: ""; flex: none; width: 8px; height: 8px; margin-top: .6em; border-radius: 50%; background: var(--petrol); }
+  .stay-tip { margin: 12px 0 0; padding: 10px 12px; border-radius: 10px; background: var(--accent-soft); font-size: .93rem; font-weight: 600; color: var(--accent-dark); max-width: none; }
+  .book-actions { display: grid; gap: 10px; }
+  .book-actions .btn { width: 100%; justify-content: center; }
+  .book-actions .fine { margin-top: 4px; }
+  .where-contact { margin: -8px 0 24px; }
+
+  @media (max-width: 900px) {
+    .wa-long { display: none; }
+    .wa-short { display: inline; }
+    .g-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; border-radius: 0; margin-inline: -20px; padding-inline: 20px; scroll-padding-inline: 20px; scrollbar-width: none; }
+    .g-grid::-webkit-scrollbar { display: none; }
+    .g-tile, .g-tile:first-child { flex: none; height: 270px; aspect-ratio: 4 / 3; border-radius: 16px; scroll-snap-align: start; }
+    .g-tile.g-portrait { aspect-ratio: 3 / 4; }
+    .g-all { position: static; width: 100%; justify-content: center; margin-top: 14px; }
+    .v-stage { grid-template-columns: minmax(0, 1fr); padding: 0 10px; }
+    .v-prev, .v-next { display: none; }
+    .v-thumbs { justify-content: flex-start; }
+    .f-grid { grid-template-columns: 1fr 1fr; }
+    .f-brand { grid-column: 1 / -1; }
+    .site-footer { padding-bottom: 96px; }
+  }
+  @media (max-width: 520px) {
+    .f-grid { grid-template-columns: 1fr; }
+    .nonas { width: 88px; height: 88px; margin-right: 16px; }
+  }
+  .wordmark { display: inline-flex; align-items: center; gap: 12px; }
+  .wordmark img { width: 44px; height: 44px; border-radius: 50%; flex: none; }
+  .wordmark b { font-weight: inherit; }
+  .g-tile:last-child .g-chip { bottom: auto; top: 12px; }
+  .nav { padding-left: 10px; }
+  .hero-logo { position: absolute; right: -18px; top: 5%; width: 156px; height: 156px; border-radius: 50%; box-shadow: 0 18px 34px -18px rgba(36, 40, 42, .6), 0 0 0 5px var(--cream); }
+  .f-brand .wordmark img { width: 76px; height: 76px; }
+  @media (max-width: 900px) {
+    .nav { padding-left: 9px; }
+    .wordmark { font-size: .95rem; gap: 8px; }
+    .nav .btn { padding: 9px 13px; gap: 7px; }
+    .wordmark img { width: 40px; height: 40px; }
+    .hero-logo { width: 116px; height: 116px; right: -6px; }
+  }
 </style>
 </head>
 
@@ -555,12 +701,15 @@
 <script>document.documentElement.classList.add('js');</script>
 
 <header class="wrap nav">
-  <a class="wordmark" href="#top">Even naar Meppen<span>.</span></a>
+  <a class="wordmark" href="#top"><img src="img/logo.jpg" width="600" height="600" alt=""><b>Even naar Meppen<span>.</span></b></a>
   <nav class="nav-links" aria-label="Hoofdmenu">
     <a href="#ijssalon">De ijssalon</a>
     <a href="#omgeving">Omgeving</a>
     <a href="#boeken">Beschikbaarheid</a>
-    <a class="btn btn-primary" href="tel:+31622561676">06 22561676</a>
+    <a class="btn btn-wa" href="https://wa.me/31622561676?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20vakantiehuisje%20Even%20naar%20Meppen." target="_blank" rel="noopener" aria-label="Stuur ons een WhatsApp-bericht">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span class="wa-long">Stuur ons een WhatsApp-bericht</span><span class="wa-short">WhatsApp</span>
+    </a>
   </nav>
 </header>
 
@@ -572,7 +721,7 @@
       <div>
         <p class="eyebrow">Brinken 9 · Meppen · Drenthe</p>
         <h1>Vakantiehuisje <em>'Even naar Meppen'</em></h1>
-        <p class="lead">Je logeert in de oude ijssalon, in het hartje van Meppen, een authentiek Drents dorpje. De pelletkachel brandt en door de tuindeuren kijk je op het rieten dak van de boerderij aan de overkant.</p>
+        <p class="lead">Je logeert met z'n tweeën in de oude ijssalon, in het hartje van Meppen, een authentiek Drents dorpje. De pelletkachel brandt en door de tuindeuren kijk je op het rieten dak van de boerderij aan de overkant.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#boeken">
             Controleer beschikbaarheid
@@ -580,22 +729,17 @@
           </a>
           <a class="btn btn-ghost" href="#ijssalon">Bekijk de ijssalon</a>
         </div>
-        <p class="hero-price"><strong>€ <span data-prijs>119</span> per nacht.</strong> Je ziet per dag wat vrij is.</p>
+        <p class="hero-price"><strong>€ <span data-prijs>110</span> per nacht</strong>, € <span data-weekprijs>650</span> voor een hele week. Beddengoed en schoonmaak zijn inbegrepen.</p>
       </div>
 
       <div class="hero-art">
-        <div class="hero-main">
+        <div class="hero-main" data-full="img/foto-02.jpg" data-caption="Woonkamer met hoekbank, pelletkachel en tuindeuren naar het terras">
           <img src="img/foto-02.jpg" width="1050" height="1400" alt="Woonkamer met hoekbank, pelletkachel en tuindeuren, met uitzicht op een boerderij met rieten dak">
         </div>
-        <div class="hero-side">
+        <div class="hero-side" data-full="img/foto-03.jpg" data-caption="De voorkant van het huisje">
           <img src="img/foto-03.jpg" width="1400" height="1050" alt="Voorgevel van het vakantiehuisje met witte tuindeuren en bloeiende oleanders">
         </div>
-        <svg class="stamp" viewBox="0 0 132 132" aria-hidden="true">
-          <circle cx="66" cy="66" r="66" fill="#fbf8f1"/>
-          <defs><path id="ring" d="M66 66 m-52 0 a52 52 0 1 1 104 0 a52 52 0 1 1 -104 0"/></defs>
-          <text><textPath href="#ring">De oude ijssalon · in het hartje van Meppen ·</textPath></text>
-        </svg>
-        <div class="stamp-core" aria-hidden="true"><span>Nonas</span></div>
+        <img class="hero-logo" src="img/logo.jpg" width="600" height="600" alt="Logo Even naar Meppen, vakantiehuisje: rust, natuur, genieten">
       </div>
     </div>
   </div>
@@ -604,9 +748,9 @@
   <div class="facts">
     <ul class="wrap">
       <li><strong>In het hartje van Meppen</strong><span>een authentiek Drents dorpje</span></li>
-      <li><strong>Pelletkachel</strong><span>in de woonkamer</span></li>
-      <li><strong>Eigen terras</strong><span>met tafel en twee parasols</span></li>
-      <li><strong>Mepperdennen</strong><span>het bos grenst aan het dorp</span></li>
+      <li><strong>Voor 2 personen</strong><span>slaapbank voor een derde persoon</span></li>
+      <li><strong>Airco en pelletkachel</strong><span>koel in de zomer, warm in de winter</span></li>
+      <li><strong>Eigen terras</strong><span>met een schuur voor je fietsen</span></li>
     </ul>
   </div>
 
@@ -619,33 +763,53 @@
           <h2>Vroeger haalde je hier een ijsje. Nu blijf je slapen.</h2>
         </div>
         <div>
+          <img class="nonas" src="img/nonas-logo.jpg" width="480" height="480" loading="lazy" alt="Het oude logo van NONAS Homemade Ice Cream: ijs, koffie, fris, gebak en broodjes">
           <p>In het raam staat nog het logo van NONAS Homemade Ice Cream. Aan de wand hangt de krijtbordkaart, met schepijs, milkshakes en appelcake.</p>
-          <p>De rest is verbouwd tot vakantiehuisje. Je vindt er een hoekbank bij de pelletkachel, een open keuken en een eettafel voor vier.</p>
+          <p>De rest is verbouwd tot vakantiehuisje voor twee personen. Je vindt er een hoekbank bij de pelletkachel, airco, een open keuken met vaatwasser en een eigen terras.</p>
         </div>
       </div>
 
-      <div class="rooms">
-        <figure class="room room-tall reveal" data-full="fotos/foto-02.jpg">
-          <img src="img/foto-02.jpg" width="1050" height="1400" loading="lazy" alt="Woonkamer met hoekbank, pelletkachel, eiken balk en tuindeuren">
-          <figcaption>
-            <h3>Wonen</h3>
-            <p>Hoekbank, pelletkachel en een eiken balk boven de tuindeuren. Doe de deuren open en je stapt het terras op.</p>
-          </figcaption>
-        </figure>
-        <figure class="room room-wide reveal" data-full="fotos/foto-05.jpg">
-          <img src="img/foto-05.jpg" width="1400" height="1050" loading="lazy" alt="Open keuken met groene tegels, eettafel met vier stoelen en de krijtbordkaart van Nonas aan de wand">
-          <figcaption>
-            <h3>Koken en eten</h3>
-            <p>Oven, kookplaat en een espressomachine. Aan de eettafel zitten jullie met z'n vieren.</p>
-          </figcaption>
-        </figure>
-        <figure class="room room-wide reveal" data-full="fotos/foto-06.jpg">
-          <img src="img/foto-06.jpg" width="1400" height="1050" loading="lazy" alt="Badkamer met houten wastafelmeubel, zwevend toilet en groenblauwe tegels">
-          <figcaption>
-            <h3>Badkamer</h3>
-            <p>Zwevend toilet met een opklapbare steun ernaast, zodat je makkelijk gaat zitten en weer opstaat.</p>
-          </figcaption>
-        </figure>
+      <div class="gallery reveal">
+        <div class="g-order" hidden>
+          <span data-full="img/foto-12.jpg" data-caption="Woonkamer en eettafel, met uitzicht op het terras"></span>
+          <span data-full="img/foto-13.jpg" data-caption="De hoekbank, met de krijtbordkaart van NONAS erboven"></span>
+          <span data-full="img/foto-02.jpg" data-caption="Woonkamer met pelletkachel en tuindeuren naar het terras"></span>
+          <span data-full="img/foto-05.jpg" data-caption="Open keuken en eettafel"></span>
+          <span data-full="img/foto-15.jpg" data-caption="Tulpen op tafel, de kaart van NONAS aan de wand"></span>
+          <span data-full="img/foto-11.jpg" data-caption="Het bed, onder een wandfoto van een schaap met twee lammeren" data-max="520"></span>
+          <span data-full="img/foto-14.jpg" data-caption="Douche in de badkamer"></span>
+          <span data-full="img/foto-06.jpg" data-caption="Badkamer met wastafel en zwevend toilet"></span>
+          <span data-full="img/foto-17.jpg" data-caption="Berging met een stellingkast"></span>
+          <span data-full="img/foto-16.jpg" data-caption="Keramieken badgasten op de balk"></span>
+          <span data-full="img/foto-08.jpg" data-caption="Eigen terras met tuintafel en twee parasols"></span>
+          <span data-full="img/foto-03.jpg" data-caption="De voorkant van het huisje"></span>
+        </div>
+        <div class="g-grid">
+          <button type="button" class="g-tile" data-full="img/foto-12.jpg">
+            <img src="img/foto-12.jpg" width="1400" height="1050" loading="lazy" alt="Eettafel met tulpen, daarachter de hoekbank en de tuindeuren naar het terras">
+            <span class="g-chip">Woonkamer</span>
+          </button>
+          <button type="button" class="g-tile" data-full="img/foto-05.jpg" data-caption="Open keuken en eettafel, met de krijtbordkaart van NONAS aan de wand">
+            <img src="img/foto-05.jpg" width="1400" height="1050" loading="lazy" alt="Open keuken met groene tegels, een eettafel en de krijtbordkaart van NONAS aan de wand">
+            <span class="g-chip">Keuken</span>
+          </button>
+          <button type="button" class="g-tile g-portrait" data-full="img/foto-11.jpg" data-max="520" data-caption="Het bed, onder een wandfoto van een schaap met twee lammeren">
+            <img src="img/foto-11.jpg" width="448" height="596" loading="lazy" alt="Opgemaakt bed met wit dekbed voor een wandfoto van een schaap met twee lammeren" style="object-position: 50% 62%">
+            <span class="g-chip">Slaapkamer</span>
+          </button>
+          <button type="button" class="g-tile g-portrait" data-full="img/foto-14.jpg">
+            <img src="img/foto-14.jpg" width="1050" height="1400" loading="lazy" alt="Douchecabine met zwart frame en witte tegels" style="object-position: 50% 35%">
+            <span class="g-chip">Badkamer</span>
+          </button>
+          <button type="button" class="g-tile g-portrait" data-full="img/foto-08.jpg" data-caption="Eigen terras met tuintafel en twee parasols">
+            <img src="img/foto-08.jpg" width="1050" height="1400" loading="lazy" alt="Terras met tuintafel en twee parasols achter een houten schutting">
+            <span class="g-chip">Terras</span>
+          </button>
+        </div>
+        <button type="button" class="g-all" data-open-gallery>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          Bekijk alle <span data-count>21</span> foto's
+        </button>
       </div>
 
     </div>
@@ -660,12 +824,16 @@
         <p class="board-note">Schepijs staat er niet meer op. Dit vind je in het huisje als je aankomt.</p>
       </div>
       <ul class="menu reveal">
+        <li><b>Airco</b><i></i><span>koel in de zomer</span></li>
         <li><b>Pelletkachel</b><i></i><span>in de woonkamer</span></li>
-        <li><b>Espressomachine</b><i></i><span>en een waterkoker</span></li>
-        <li><b>Oven en kookplaat</b><i></i><span>in de open keuken</span></li>
-        <li><b>Eettafel</b><i></i><span>met vier stoelen</span></li>
-        <li><b>Tuindeuren</b><i></i><span>van de bank zo naar buiten</span></li>
-        <li><b>Terras</b><i></i><span>tafel, vier stoelen, twee parasols</span></li>
+        <li><b>Vaatwasser</b><i></i><span>in de open keuken</span></li>
+        <li><b>Oven en magnetron</b><i></i><span>en allerlei kookgerei</span></li>
+        <li><b>Koffiezetapparaat</b><i></i><span>en een waterkoker</span></li>
+        <li><b>TV</b><i></i><span>in het huisje</span></li>
+        <li><b>Beddengoed en handdoeken</b><i></i><span>schoon, liggen klaar</span></li>
+        <li><b>Slaapbank</b><i></i><span>voor een derde persoon</span></li>
+        <li><b>Eigen terras</b><i></i><span>met tuintafel en twee parasols</span></li>
+        <li><b>Schuur</b><i></i><span>om je fietsen in te zetten</span></li>
       </ul>
     </div>
   </section>
@@ -674,20 +842,20 @@
   <section>
     <div class="wrap terrace-grid">
       <div class="terrace-art reveal">
-        <div class="a" data-full="fotos/foto-08.jpg">
-          <img src="img/foto-08.jpg" width="1050" height="1400" loading="lazy" alt="Terras met tuintafel, vier stoelen en twee parasols achter een houten schutting">
+        <div class="a" data-full="img/foto-08.jpg">
+          <img src="img/foto-08.jpg" width="1050" height="1400" loading="lazy" alt="Terras met tuintafel en twee parasols achter een houten schutting">
         </div>
-        <div class="b" data-full="fotos/foto-03.jpg">
+        <div class="b" data-full="img/foto-03.jpg">
           <img src="img/foto-03.jpg" width="1400" height="1050" loading="lazy" alt="Voorgevel van het huisje met oleanders in blauwe potten">
         </div>
       </div>
       <div class="terrace-copy reveal">
         <p class="eyebrow">Buiten</p>
         <h2>Ontbijten op je eigen terras</h2>
-        <p>Het terras ligt achter een houten schutting en een heg, dus je zit uit het zicht van de straat. Er staat een tafel met vier stoelen en er zijn twee parasols voor als de zon doorkomt.</p>
+        <p>Het terras ligt achter een houten schutting en een heg, dus je zit uit het zicht van de straat. Er staat een tuintafel en er zijn twee parasols voor als de zon doorkomt.</p>
         <ul class="ticks">
           <li>Je loopt vanuit de woonkamer door de tuindeuren naar buiten.</li>
-          <li>Oleanders en hortensia's staan in bloei naast de voordeur.</li>
+          <li>Je fietsen zet je droog weg in de schuur.</li>
           <li>Over de heg zie je het rieten dak van de boerderij aan de overkant.</li>
         </ul>
       </div>
@@ -699,21 +867,28 @@
     <div class="wrap">
       <div class="around-head reveal">
         <p class="eyebrow">Omgeving</p>
-        <h2>Loop de deur uit en je staat op de brink</h2>
+        <h2>Midden in het mooiste stukje van Drenthe</h2>
+        <p class="around-text">Het huisje staat in hartje Meppen, direct aan wandel- en fietsroutes. Voor een dagje uit zit je in de buurt van Wildlands in Emmen, Kamp Westerbork en museumdorp Orvelte.</p>
       </div>
 
       <div class="mosaic reveal">
-        <figure class="m1" data-full="fotos/foto-01.jpg"><img src="img/foto-01.jpg" width="1400" height="1050" loading="lazy" alt="De brink van Meppen met boerderijen, heggen en oude eiken"></figure>
-        <figure class="m2" data-full="fotos/foto-07.jpg"><img src="img/foto-07.jpg" width="1050" height="1400" loading="lazy" alt="Bloembak voor een boerderij met rieten dak in Meppen"></figure>
-        <figure class="m3" data-full="fotos/foto-09.jpg"><img src="img/foto-09.jpg" width="1400" height="1050" loading="lazy" alt="Oud houten hek onder de eiken"></figure>
-        <figure class="m4" data-full="fotos/foto-04.jpg"><img src="img/foto-04.jpg" width="1400" height="934" loading="lazy" alt="Keramieken kippen op een houten hek"></figure>
-        <figure class="m5" data-full="fotos/foto-10.jpg"><img src="img/foto-10.jpg" width="1400" height="1050" loading="lazy" alt="Kleine keramieken huisjes op een boomstam"></figure>
+        <figure class="m1" data-full="img/foto-18.jpg" data-caption="De heide bij zonsopkomst"><img src="img/foto-18.jpg" width="1400" height="933" loading="lazy" alt="Bloeiende heide bij zonsopkomst"></figure>
+        <figure class="m2" data-full="img/foto-19.jpg" data-caption="Schotse hooglander in het water"><img src="img/foto-19.jpg" width="1050" height="1400" loading="lazy" alt="Schotse hooglander die tot zijn schouders in het water staat"></figure>
+        <figure class="m3" data-full="img/foto-20.jpg" data-caption="Eekhoorn in het bos"><img src="img/foto-20.jpg" width="1400" height="1050" loading="lazy" alt="Rode eekhoorn op een tak"></figure>
+        <figure class="m4" data-full="img/foto-21.jpg" data-caption="Een molen in de buurt"><img src="img/foto-21.jpg" width="1050" height="1400" loading="lazy" alt="Molen met rieten kap op een heuvel, achter een houten hek" style="object-position: 50% 32%"></figure>
+        <figure class="m5" data-full="img/foto-01.jpg" data-caption="Meppen, met boerderijen en oude eiken"><img src="img/foto-01.jpg" width="1400" height="1050" loading="lazy" alt="Meppen met boerderijen, heggen en oude eiken"></figure>
+        <div hidden>
+          <span data-full="img/foto-07.jpg" data-caption="Bloembak bij een boerderij met rieten dak"></span>
+          <span data-full="img/foto-09.jpg" data-caption="Oud houten hek onder de eiken"></span>
+          <span data-full="img/foto-04.jpg" data-caption="Keramieken kippen op een hek"></span>
+          <span data-full="img/foto-10.jpg" data-caption="Keramieken huisjes op een boomstam"></span>
+        </div>
       </div>
 
       <div class="trips reveal">
         <div class="trip">
-          <span class="num">0 km</span>
-          <h3>De brink</h3>
+          <span class="num">voor de deur</span>
+          <h3>Hartje Meppen</h3>
           <p>Saksische boerderijen met rieten daken, heggen eromheen en oude eiken langs de klinkerweg.</p>
         </div>
         <div class="trip">
@@ -735,13 +910,28 @@
     </div>
   </section>
 
+  <!-- REVIEWS -->
+  <section class="reviews" id="reviews" hidden>
+    <div class="wrap">
+      <div class="rev-head">
+        <div>
+          <p class="eyebrow">Reviews</p>
+          <h2>Wat gasten zeggen</h2>
+        </div>
+        <p class="rev-score" id="rev-score"></p>
+      </div>
+      <p class="rev-note" id="rev-note" hidden>Dit zijn voorbeeldreviews. Je ziet ze alleen als je de pagina op je eigen computer opent. Zet echte reviews in reviews.js en dit blok komt online.</p>
+      <div class="rev-grid" id="rev-grid"></div>
+    </div>
+  </section>
+
   <!-- BOEKEN -->
   <section id="boeken">
     <div class="wrap">
       <div class="book-head reveal">
         <p class="eyebrow">Beschikbaarheid en prijs</p>
         <h2>Kies je dagen</h2>
-        <p>Je betaalt € <span data-prijs>119</span> per nacht. Tik op je aankomstdag en daarna op je vertrekdag, dan zie je meteen wat je verblijf kost.</p>
+        <p>Je betaalt € <span data-prijs>110</span> per nacht, of € <span data-weekprijs>650</span> voor een hele week. Beddengoed en schoonmaak zijn inbegrepen. Tik op je aankomstdag en daarna op je vertrekdag, dan zie je meteen wat je verblijf kost.</p>
       </div>
 
       <div class="book">
@@ -763,6 +953,15 @@
           </div>
           <div class="cal-months" id="cal-months"></div>
           <noscript><p>De kalender werkt met JavaScript. Bel 06 22561676 om te vragen of jouw dagen vrij zijn.</p></noscript>
+          <div class="know">
+            <h3>Goed om te weten</h3>
+            <ul>
+              <li>Het huisje is voor 2 personen. Er staat een slaapbank voor een eventuele derde persoon.</li>
+              <li>Beddengoed, handdoeken en schoonmaak zijn bij de prijs inbegrepen.</li>
+              <li>Je fietsen zet je in de schuur.</li>
+              <li>Huisdieren zijn niet toegestaan.</li>
+            </ul>
+          </div>
         </div>
 
         <aside class="panel reveal" style="--i:1" aria-label="Jouw aanvraag">
@@ -775,35 +974,26 @@
               </dl>
               <ul class="stay-lines" id="stay-lines"></ul>
               <div class="stay-total" id="stay-total" hidden><span>Totaal</span><strong id="stay-sum"></strong></div>
+              <p class="stay-tip" id="stay-tip" hidden></p>
               <button type="button" class="reset" id="stay-reset">Andere dagen kiezen</button>
             </div>
 
-            <form id="book-form" novalidate>
-              <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="book-actions">
               <p class="err" id="dates-err" hidden></p>
-              <div class="field">
-                <label for="tel">Telefoonnummer</label>
-                <input id="tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="tel-help tel-err">
-                <p class="help" id="tel-help">Op dit nummer bereiken we je over je boeking.</p>
-                <p class="err" id="tel-err" hidden></p>
-              </div>
-              <div class="field">
-                <label for="email">E-mailadres</label>
-                <input id="email" name="email" type="email" inputmode="email" autocomplete="email" aria-describedby="email-help email-err">
-                <p class="help" id="email-help">Hier sturen we de bevestiging naartoe.</p>
-                <p class="err" id="email-err" hidden></p>
-              </div>
-              <button class="btn btn-primary" type="submit" id="book-submit">Verstuur boekingsaanvraag</button>
-              <p class="err" id="send-err" hidden style="margin-top:12px"></p>
-              <p class="fine">Na je aanvraag nemen we contact met je op om de boeking te bevestigen. Je betaalt nu nog niets.</p>
-            </form>
+              <button class="btn btn-primary" type="button" id="book-wa">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Vraag aan via WhatsApp
+              </button>
+              <a class="btn btn-ghost" id="book-mail" href="mailto:marja@pplaatkoeling.nl">Vraag aan per e-mail</a>
+              <p class="fine">Je stuurt een bericht waarin je dagen al staan. Daarna nemen we contact met je op om de boeking te bevestigen. Je betaalt nu nog niets.</p>
+            </div>
           </div>
 
           <div class="done" id="book-done" hidden tabindex="-1">
             <h3 id="done-title"></h3>
             <p id="done-text"></p>
             <ul class="stay-lines" id="done-lines"></ul>
-            <a class="btn btn-primary" id="done-wa" href="#" target="_blank" rel="noopener" hidden>Open WhatsApp opnieuw</a>
+            <a class="btn btn-primary" id="done-again" href="#" target="_blank" rel="noopener"></a>
             <button type="button" class="reset" id="done-reset">Nog een aanvraag doen</button>
           </div>
         </aside>
@@ -818,9 +1008,10 @@
         <p class="eyebrow">Adres en route</p>
         <h2>Brinken 9, Meppen</h2>
         <address class="where-address">Vakantiehuisje Even naar Meppen<br>Brinken 9, 7855 PC Meppen (Drenthe)</address>
+        <p class="where-contact">Vragen? Stuur Peter Plaat een WhatsApp-bericht, bel 06 22561676 of mail naar <a href="mailto:marja@pplaatkoeling.nl">marja@pplaatkoeling.nl</a>.</p>
         <div class="card-cta">
           <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&destination=Vakantiehuisje+Even+naar+Meppen%2C+Brinken+9%2C+7855+PC+Meppen" target="_blank" rel="noopener">Plan je route</a>
-          <a class="btn btn-ghost" href="tel:+31622561676">Bel 06 22561676</a>
+          <a class="btn btn-ghost" href="https://wa.me/31622561676?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20vakantiehuisje%20Even%20naar%20Meppen." target="_blank" rel="noopener">Stuur een WhatsApp</a>
         </div>
       </div>
       <div class="card reveal">
@@ -836,26 +1027,74 @@
       <h2>Wanneer ga jij <em>even naar Meppen?</em></h2>
       <p>Kies je dagen in de kalender. Je ziet direct wat je verblijf kost.</p>
       <a class="btn btn-primary" href="#boeken">Controleer beschikbaarheid</a>
-      <small>Liever bellen? <a href="tel:+31622561676">06 22561676</a></small>
+      <small>Eerst een vraag stellen? <a href="https://wa.me/31622561676?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20vakantiehuisje%20Even%20naar%20Meppen." target="_blank" rel="noopener">Stuur ons een WhatsApp-bericht</a></small>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <span>Vakantiehuisje Even naar Meppen · Brinken 9, 7855 PC Meppen</span>
-    <span><a href="tel:+31622561676">06 22561676</a></span>
+<footer class="site-footer">
+  <div class="wrap f-grid">
+    <div class="f-brand">
+      <a class="wordmark" href="#top"><img src="img/logo.jpg" width="600" height="600" alt="Logo Even naar Meppen, vakantiehuisje: rust, natuur, genieten"><b>Even naar Meppen<span>.</span></b></a>
+      <p>Vakantiehuisje voor twee in de oude ijssalon, in het hartje van Meppen, een authentiek Drents dorpje.</p>
+    </div>
+    <div>
+      <h3>Adres</h3>
+      <address>Brinken 9<br>7855 PC Meppen<br>Drenthe</address>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Vakantiehuisje+Even+naar+Meppen%2C+Brinken+9%2C+7855+PC+Meppen" target="_blank" rel="noopener">Plan je route</a>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li>Peter Plaat</li>
+        <li><a href="https://wa.me/31622561676?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20vakantiehuisje%20Even%20naar%20Meppen." target="_blank" rel="noopener">WhatsApp 06 22561676</a></li>
+        <li><a href="tel:+31622561676">Bel 06 22561676</a></li>
+        <li><a href="mailto:marja@pplaatkoeling.nl">marja@pplaatkoeling.nl</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Prijzen</h3>
+      <ul>
+        <li>€ <span data-prijs>110</span> per nacht</li>
+        <li>€ <span data-weekprijs>650</span> per week</li>
+        <li>Beddengoed en schoonmaak inbegrepen</li>
+        <li><a href="#boeken">Controleer beschikbaarheid</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap f-bottom">
+    <span>© 2026 Vakantiehuisje Even naar Meppen</span>
+    <nav aria-label="Voettekst">
+      <a href="#ijssalon">De ijssalon</a>
+      <a href="#omgeving">Omgeving</a>
+      <a href="#boeken">Beschikbaarheid</a>
+    </nav>
   </div>
 </footer>
 
 <a class="callbar" id="stickybar" href="#boeken">Controleer beschikbaarheid</a>
 
-<dialog class="lightbox" aria-label="Foto vergroot">
-  <button type="button" aria-label="Sluiten">×</button>
-  <img alt="">
+<dialog class="viewer" aria-label="Foto's van het huisje en de omgeving">
+  <div class="v-top">
+    <span class="v-count" aria-live="polite"></span>
+    <button type="button" class="v-btn v-close" aria-label="Sluiten">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="v-stage">
+    <button type="button" class="v-btn v-prev" aria-label="Vorige foto">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+    </button>
+    <figure class="v-fig"><img alt=""><figcaption></figcaption></figure>
+    <button type="button" class="v-btn v-next" aria-label="Volgende foto">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+  <div class="v-thumbs"></div>
 </dialog>
 
 <script src="boeking-config.js"></script>
+<script src="reviews.js"></script>
 <script>
 (function () {
   'use strict';
@@ -868,18 +1107,111 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
 
-  /* ---------- foto's vergroten ---------- */
-  var box = document.querySelector('dialog.lightbox');
-  var boxImg = box.querySelector('img');
-  document.querySelectorAll('[data-full]').forEach(function (el) {
-    el.addEventListener('click', function () {
-      var img = el.querySelector('img');
-      boxImg.src = el.dataset.full;
-      boxImg.alt = img ? img.alt : '';
-      box.showModal();
-    });
+  /* ---------- fotoviewer ---------- */
+  var viewer = document.querySelector('dialog.viewer');
+  var vImg = viewer.querySelector('.v-fig img');
+  var vCap = viewer.querySelector('.v-fig figcaption');
+  var vCount = viewer.querySelector('.v-count');
+  var vThumbs = viewer.querySelector('.v-thumbs');
+  var shots = [], shotIndex = {}, current = 0;
+
+  var fullEls = Array.prototype.slice.call(document.querySelectorAll('.g-order [data-full]'))
+    .concat(Array.prototype.slice.call(document.querySelectorAll('[data-full]')));
+  fullEls.forEach(function (el) {
+    var src = el.dataset.full;
+    var img = el.querySelector('img');
+    if (!(src in shotIndex)) {
+      shotIndex[src] = shots.length;
+      shots.push({ src: src, caption: el.dataset.caption || (img ? img.alt : ''), alt: img ? img.alt : '', max: el.dataset.max || '' });
+    } else {
+      if (el.dataset.caption) shots[shotIndex[src]].caption = el.dataset.caption;
+      if (el.dataset.max) shots[shotIndex[src]].max = el.dataset.max;
+    }
+    el.addEventListener('click', function () { openViewer(shotIndex[src]); });
   });
-  box.addEventListener('click', function () { box.close(); });
+  document.querySelectorAll('[data-count]').forEach(function (el) { el.textContent = shots.length; });
+  document.querySelectorAll('[data-open-gallery]').forEach(function (el) { el.addEventListener('click', function () { openViewer(0); }); });
+
+  shots.forEach(function (shot, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Foto ' + (i + 1) + ': ' + shot.caption);
+    var t = document.createElement('img');
+    t.src = shot.src; t.alt = ''; t.loading = 'lazy';
+    b.appendChild(t);
+    b.addEventListener('click', function () { show(i); });
+    vThumbs.appendChild(b);
+  });
+
+  function show(i) {
+    current = (i + shots.length) % shots.length;
+    var shot = shots[current];
+    vImg.src = shot.src; vImg.alt = shot.alt;
+    vImg.style.maxWidth = shot.max ? 'min(100%, ' + shot.max + 'px)' : '';
+    vCap.textContent = shot.caption;
+    vCount.textContent = (current + 1) + ' / ' + shots.length;
+    Array.prototype.forEach.call(vThumbs.children, function (b, n) {
+      b.setAttribute('aria-current', n === current ? 'true' : 'false');
+      if (n === current) vThumbs.scrollLeft = b.offsetLeft - (vThumbs.clientWidth - b.offsetWidth) / 2;
+    });
+    var next = shots[(current + 1) % shots.length];
+    if (next) { new Image().src = next.src; }
+  }
+  function openViewer(i) { if (!viewer.open) viewer.showModal(); show(i); }
+
+  viewer.querySelector('.v-close').addEventListener('click', function () { viewer.close(); });
+  viewer.querySelector('.v-prev').addEventListener('click', function () { show(current - 1); });
+  viewer.querySelector('.v-next').addEventListener('click', function () { show(current + 1); });
+  viewer.addEventListener('keydown', function (ev) {
+    if (ev.key === 'ArrowLeft') { show(current - 1); ev.preventDefault(); }
+    if (ev.key === 'ArrowRight') { show(current + 1); ev.preventDefault(); }
+  });
+  viewer.querySelector('.v-stage').addEventListener('click', function (ev) {
+    if (ev.target.classList.contains('v-stage') || ev.target.classList.contains('v-fig')) viewer.close();
+  });
+  var touchX = null;
+  viewer.addEventListener('touchstart', function (ev) { touchX = ev.touches[0].clientX; }, { passive: true });
+  viewer.addEventListener('touchend', function (ev) {
+    if (touchX === null) return;
+    var dx = ev.changedTouches[0].clientX - touchX; touchX = null;
+    if (Math.abs(dx) > 45) show(current + (dx < 0 ? 1 : -1));
+  });
+
+  /* ---------- reviews ---------- */
+  (function () {
+    var list = window.REVIEWS || [];
+    var local = location.protocol === 'file:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+    var sample = false;
+    if (!list.length && local) {
+      sample = true;
+      list = [
+        { naam: 'Voorbeeldgast', plaats: 'Zwolle', datum: 'oktober 2026', sterren: 5, bron: 'Google', tekst: 'Hier komt de tekst van een echte gast. Twee of drie zinnen over het huisje, het terras of de omgeving lezen het prettigst.' },
+        { naam: 'Voorbeeldgast', plaats: 'Utrecht', datum: 'september 2026', sterren: 5, bron: 'Google', tekst: 'Een tweede review, zodat je ziet hoe het blok eruitziet met kaarten naast elkaar.' },
+        { naam: 'Voorbeeldgast', plaats: 'Groningen', datum: 'augustus 2026', sterren: 4, bron: 'Airbnb', tekst: 'Een derde review met vier sterren. De score rechtsboven rekent de pagina zelf uit.' }
+      ];
+    }
+    if (!list.length) return;
+
+    var star = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5l-5.9 3.1 1.2-6.5L2.5 9.5l6.6-.9z"/></svg>';
+    function esc(t) { var d = document.createElement('div'); d.textContent = t == null ? '' : String(t); return d.innerHTML; }
+    function stars(n) { var h = ''; for (var i = 1; i <= 5; i++) h += i <= n ? star : star.replace('<svg', '<svg class="off"'); return h; }
+
+    var sum = 0;
+    document.getElementById('rev-grid').innerHTML = list.map(function (r) {
+      var n = Math.max(1, Math.min(5, Math.round(r.sterren || 5))); sum += n;
+      var meta = [r.plaats, r.datum, r.bron ? 'via ' + r.bron : ''].filter(Boolean).map(esc).join(' · ');
+      return '<figure class="rev">' +
+        (sample ? '<span class="rev-badge">Voorbeeld</span>' : '') +
+        '<div class="rev-who"><span class="rev-avatar" aria-hidden="true">' + esc((r.naam || '?').charAt(0).toUpperCase()) + '</span>' +
+        '<div><div class="rev-name">' + esc(r.naam) + '</div><div class="rev-meta">' + meta + '</div></div></div>' +
+        '<div class="rev-stars" role="img" aria-label="' + n + ' van 5 sterren">' + stars(n) + '</div>' +
+        '<blockquote>' + esc(r.tekst) + '</blockquote></figure>';
+    }).join('');
+    var avg = (sum / list.length).toFixed(1).replace('.', ',');
+    document.getElementById('rev-score').innerHTML = '<strong>' + avg + '</strong> van 5, uit ' + list.length + (list.length === 1 ? ' review' : ' reviews');
+    document.getElementById('rev-note').hidden = !sample;
+    document.getElementById('reviews').hidden = false;
+  })();
 
   /* ---------- vaste knop verbergen bij de kalender ---------- */
   var bar = document.getElementById('stickybar');
@@ -889,9 +1221,10 @@
   }, { threshold: 0.05 }).observe(bookSection);
 
   /* ---------- boekingskalender ---------- */
-  var cfg = window.BOEKING || { prijsPerNacht: 119, prijsPerDatum: {}, bezet: [], minNachten: 1, maandenVooruit: 12, endpoint: '', whatsapp: '31622561676', telefoon: '06 22561676' };
+  var cfg = window.BOEKING || { prijsPerNacht: 110, weekprijs: 650, prijsPerDatum: {}, bezet: [], minNachten: 1, maandenVooruit: 12, whatsapp: '31622561676', telefoon: '06 22561676', email: 'marja@pplaatkoeling.nl' };
 
   document.querySelectorAll('[data-prijs]').forEach(function (el) { el.textContent = cfg.prijsPerNacht; });
+  document.querySelectorAll('[data-weekprijs]').forEach(function (el) { el.textContent = cfg.weekprijs; });
 
   function pad(n) { return String(n).padStart(2, '0'); }
   function key(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
@@ -1014,23 +1347,39 @@
   var elLines = document.getElementById('stay-lines');
   var elTotal = document.getElementById('stay-total');
   var elSum = document.getElementById('stay-sum');
+  var elTip = document.getElementById('stay-tip');
 
   function stayInfo() {
     if (!state.start || !state.end) return null;
-    var groups = {}, total = 0, n = 0;
-    for (var d = state.start; d < state.end; d = addDays(d, 1)) {
-      var p = price(key(d)); groups[p] = (groups[p] || 0) + 1; total += p; n++;
+    var prices = [];
+    for (var d = state.start; d < state.end; d = addDays(d, 1)) prices.push(price(key(d)));
+    var n = prices.length, lines = [], total = 0;
+
+    // hele weken tegen de weekprijs, losse nachten tegen de nachtprijs
+    var weeks = cfg.weekprijs ? Math.floor(n / 7) : 0;
+    if (weeks) {
+      total += weeks * cfg.weekprijs;
+      lines.push({ left: (weeks === 1 ? '1 week' : weeks + ' weken') + ' (' + (weeks * 7) + ' nachten)', right: euro.format(weeks * cfg.weekprijs) });
     }
-    var lines = Object.keys(groups).map(function (p) {
+    var groups = {}, restSum = 0, rest = prices.slice(weeks * 7);
+    rest.forEach(function (p) { groups[p] = (groups[p] || 0) + 1; restSum += p; });
+    Object.keys(groups).forEach(function (p) {
       var c = groups[p];
-      return { left: c + (c === 1 ? ' nacht' : ' nachten') + ' × ' + euro.format(+p), right: euro.format(c * p) };
+      lines.push({ left: c + (c === 1 ? ' nacht' : ' nachten') + ' × ' + euro.format(+p), right: euro.format(c * p) });
     });
-    return { nights: n, total: total, lines: lines };
+    total += restSum;
+
+    var tip = '';
+    if (cfg.weekprijs && rest.length === 6 && restSum >= cfg.weekprijs) {
+      tip = 'Een hele week kost ' + euro.format(cfg.weekprijs) + '. Met één nacht erbij betaal je minder.';
+    }
+    return { nights: n, total: total, lines: lines, tip: tip };
   }
 
   function lineHTML(l) { return '<li><span>' + l.left + '</span><span>' + l.right + '</span></li>'; }
 
   function summary() {
+    elTip.hidden = true;
     if (!state.start) { elEmpty.hidden = false; elStay.hidden = true; return; }
     elEmpty.hidden = true; elStay.hidden = false;
     elIn.textContent = fmtShort.format(state.start);
@@ -1045,110 +1394,69 @@
     elLines.innerHTML = info.lines.map(lineHTML).join('');
     elSum.textContent = euro.format(info.total);
     elTotal.hidden = false;
+    if (info.tip) { elTip.textContent = info.tip; elTip.hidden = false; }
   }
 
   function resetDates() { state.start = null; state.end = null; state.hover = null; paint(); }
   document.getElementById('stay-reset').addEventListener('click', resetDates);
 
-  /* ---------- formulier ---------- */
-  var form = document.getElementById('book-form');
-  var submit = document.getElementById('book-submit');
+  /* ---------- aanvraag versturen ---------- */
   var viewForm = document.getElementById('book-form-view');
   var viewDone = document.getElementById('book-done');
-  var doneWa = document.getElementById('done-wa');
-  var viaWhatsApp = !cfg.endpoint;
-  var submitLabel = viaWhatsApp ? 'Verstuur aanvraag via WhatsApp' : 'Verstuur boekingsaanvraag';
-  submit.textContent = submitLabel;
+  var doneAgain = document.getElementById('done-again');
 
-  function showErr(id, msg) {
-    var el = document.getElementById(id);
-    el.textContent = msg; el.hidden = !msg;
-    var input = document.getElementById(id.replace('-err', ''));
-    if (input && input.tagName === 'INPUT') input.setAttribute('aria-invalid', msg ? 'true' : 'false');
-  }
+  function showErr(id, msg) { var el = document.getElementById(id); el.textContent = msg; el.hidden = !msg; }
 
-  function validate() {
-    var ok = true, first = null;
+  function checkDates() {
     if (!state.start || !state.end) {
       showErr('dates-err', state.start ? 'Kies ook je vertrekdag in de kalender.' : 'Kies eerst je aankomstdag en je vertrekdag in de kalender.');
-      ok = false;
-    } else showErr('dates-err', '');
-
-    var tel = form.tel.value.trim();
-    if (tel.replace(/\D/g, '').length < 9) { showErr('tel-err', 'Vul een telefoonnummer in van minstens 9 cijfers.'); ok = false; first = first || form.tel; }
-    else showErr('tel-err', '');
-
-    var email = form.email.value.trim();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { showErr('email-err', 'Vul een e-mailadres in, bijvoorbeeld naam@voorbeeld.nl.'); ok = false; first = first || form.email; }
-    else showErr('email-err', '');
-
-    if (!ok && first) first.focus();
-    return ok;
+      return null;
+    }
+    showErr('dates-err', '');
+    return stayInfo();
   }
-  form.tel.addEventListener('input', function () { showErr('tel-err', ''); });
-  form.email.addEventListener('input', function () { showErr('email-err', ''); });
 
-  function showDone(info, waUrl) {
-    document.getElementById('done-title').textContent = waUrl ? 'Je aanvraag staat klaar in WhatsApp' : 'Je aanvraag is verstuurd';
-    document.getElementById('done-text').textContent = waUrl
-      ? 'Druk in WhatsApp op verzenden. Daarna nemen we contact met je op om de boeking te bevestigen.'
-      : 'We nemen contact met je op om de boeking te bevestigen.';
+  function requestText(info) {
+    return 'Hallo, ik wil graag het vakantiehuisje Even naar Meppen boeken.\n' +
+      'Aankomst: ' + fmtLong.format(state.start) + '\n' +
+      'Vertrek: ' + fmtLong.format(state.end) + '\n' +
+      info.nights + (info.nights === 1 ? ' nacht' : ' nachten') + ', totaal ' + euro.format(info.total) + '\n' +
+      'Is het huisje dan vrij?';
+  }
+
+  function showDone(info, url, kind) {
+    var wa = kind === 'wa';
+    document.getElementById('done-title').textContent = wa ? 'Je aanvraag staat klaar in WhatsApp' : 'Je aanvraag staat klaar in je mail';
+    document.getElementById('done-text').textContent = (wa ? 'Druk in WhatsApp op verzenden.' : 'Verstuur de mail die net is geopend.') +
+      ' Daarna nemen we contact met je op om de boeking te bevestigen.';
     document.getElementById('done-lines').innerHTML =
       lineHTML({ left: 'Aankomst', right: fmtShort.format(state.start) }) +
       lineHTML({ left: 'Vertrek', right: fmtShort.format(state.end) }) +
       lineHTML({ left: info.nights + (info.nights === 1 ? ' nacht' : ' nachten'), right: euro.format(info.total) });
-    doneWa.hidden = !waUrl;
-    if (waUrl) doneWa.href = waUrl;
+    doneAgain.href = url;
+    doneAgain.textContent = wa ? 'Open WhatsApp opnieuw' : 'Open de mail opnieuw';
+    if (wa) { doneAgain.target = '_blank'; } else { doneAgain.removeAttribute('target'); }
     viewForm.hidden = true; viewDone.hidden = false; viewDone.focus();
   }
 
-  document.getElementById('done-reset').addEventListener('click', function () {
-    viewDone.hidden = true; viewForm.hidden = false;
-    form.reset(); resetDates();
+  document.getElementById('book-wa').addEventListener('click', function () {
+    var info = checkDates(); if (!info) return;
+    var url = 'https://wa.me/' + cfg.whatsapp + '?text=' + encodeURIComponent(requestText(info));
+    window.open(url, '_blank', 'noopener');
+    showDone(info, url, 'wa');
   });
 
-  form.addEventListener('submit', function (ev) {
-    ev.preventDefault();
-    showErr('send-err', '');
-    if (form.website.value) return;            // lokveld voor spambots
-    if (!validate()) return;
+  document.getElementById('book-mail').addEventListener('click', function (ev) {
+    var info = checkDates(); if (!info) { ev.preventDefault(); return; }
+    var url = 'mailto:' + cfg.email +
+      '?subject=' + encodeURIComponent('Boekingsaanvraag ' + fmtShort.format(state.start) + ' tot ' + fmtShort.format(state.end)) +
+      '&body=' + encodeURIComponent(requestText(info));
+    this.href = url;
+    setTimeout(function () { showDone(info, url, 'mail'); }, 400);
+  });
 
-    var info = stayInfo();
-    var data = {
-      aankomst: key(state.start),
-      vertrek: key(state.end),
-      nachten: info.nights,
-      totaal: info.total,
-      telefoon: form.tel.value.trim(),
-      email: form.email.value.trim()
-    };
-
-    if (viaWhatsApp) {
-      var text = 'Boekingsaanvraag Even naar Meppen\n' +
-        'Aankomst: ' + fmtLong.format(state.start) + '\n' +
-        'Vertrek: ' + fmtLong.format(state.end) + '\n' +
-        data.nachten + (data.nachten === 1 ? ' nacht' : ' nachten') + ', totaal ' + euro.format(data.totaal) + '\n' +
-        'Telefoon: ' + data.telefoon + '\n' +
-        'E-mail: ' + data.email;
-      var url = 'https://wa.me/' + cfg.whatsapp + '?text=' + encodeURIComponent(text);
-      window.open(url, '_blank', 'noopener');
-      showDone(info, url);
-      return;
-    }
-
-    submit.disabled = true; submit.textContent = 'Bezig met versturen';
-    fetch(cfg.endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(Object.assign({ _subject: 'Boekingsaanvraag ' + data.aankomst + ' tot ' + data.vertrek }, data))
-    }).then(function (r) {
-      if (!r.ok) throw new Error('status ' + r.status);
-      showDone(info, null);
-    }).catch(function () {
-      showErr('send-err', 'Versturen lukte niet. Probeer het opnieuw of bel ' + cfg.telefoon + '.');
-    }).then(function () {
-      submit.disabled = false; submit.textContent = submitLabel;
-    });
+  document.getElementById('done-reset').addEventListener('click', function () {
+    viewDone.hidden = true; viewForm.hidden = false; resetDates();
   });
 
   render();
