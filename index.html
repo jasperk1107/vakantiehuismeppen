@@ -118,8 +118,26 @@
 
   /* ---------- navigatie ---------- */
   .nav {
+    position: sticky; top: 12px; z-index: 30;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 22px 0;
+    margin-top: 12px;
+    padding: 9px 10px 9px 24px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, .55);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, .5), rgba(255, 255, 255, .12) 55%, rgba(255, 255, 255, .22)),
+      rgba(246, 241, 231, .5);
+    -webkit-backdrop-filter: blur(20px) saturate(170%);
+    backdrop-filter: blur(20px) saturate(170%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, .85),
+      inset 0 -1px 0 rgba(36, 40, 42, .06),
+      inset 0 0 0 1px rgba(255, 255, 255, .12),
+      0 14px 34px -20px rgba(36, 40, 42, .5),
+      0 2px 6px -2px rgba(36, 40, 42, .12);
+  }
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .nav { background: rgba(246, 241, 231, .94); }
   }
   .wordmark {
     font-family: var(--display); font-style: italic; font-size: 1.35rem;
@@ -157,7 +175,7 @@
   .hero-price strong { color: var(--ink); }
   .btn:active { transform: scale(.98); }
   .btn[disabled] { opacity: .6; cursor: progress; }
-  section[id] { scroll-margin-top: 16px; }
+  section[id] { scroll-margin-top: 92px; }
 
   .hero-art { position: relative; padding: 0 0 70px 40px; }
   .hero-main {
@@ -483,6 +501,8 @@
   @media (max-width: 900px) {
     body { font-size: 16.5px; }
     .nav-links a:not(.btn) { display: none; }
+    .nav { padding-left: 18px; }
+    .wordmark { font-size: 1.15rem; }
     .hero { padding: 14px 0 70px; }
     .hero-grid, .intro, .board-grid, .terrace-grid, .practical-grid { grid-template-columns: 1fr; }
     .hero-art { padding: 0 0 56px 26px; max-width: 520px; margin-inline: auto; width: 100%; }
