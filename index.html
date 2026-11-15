@@ -636,7 +636,6 @@
   .rev-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 40px; margin-bottom: 34px; }
   .rev-score { margin: 0; display: flex; align-items: baseline; gap: 10px; color: var(--ink-soft); }
   .rev-score strong { font: 600 2.4rem var(--display); color: var(--ink); letter-spacing: -.02em; }
-  .rev-note { margin: 0 0 22px; padding: 12px 16px; border: 1.5px dashed var(--oak); border-radius: 12px; background: rgba(182, 127, 67, .08); font-size: .95rem; max-width: none; }
   .rev-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px; }
   .rev { margin: 0; padding: 26px; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); display: grid; gap: 14px; align-content: start; }
   .rev-who { display: flex; align-items: center; gap: 12px; }
@@ -1008,7 +1007,6 @@
         </div>
         <p class="rev-score" id="rev-score"></p>
       </div>
-      <p class="rev-note" id="rev-note" hidden>Dit zijn voorbeeldreviews. Je ziet ze alleen als je de pagina op je eigen computer opent. Zet echte reviews in reviews.js en dit blok komt online.</p>
       <div class="rev-grid" id="rev-grid"></div>
     </div>
   </section>
@@ -1269,24 +1267,6 @@
   /* ---------- reviews, score en schaarste ---------- */
   (function () {
     var list = window.REVIEWS || [];
-    var local = location.protocol === 'file:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-    // Voorbeeldversie: alleen via de link met ?voorbeeld erachter (of lokaal). Niet voor zoekmachines.
-    var demo = /[?&]voorbeeld\b/.test(location.search) || (local && !list.length);
-    var sample = false;
-    if (demo && !list.length) {
-      sample = true;
-      list = [
-        { naam: 'Sanne & Mark', sterren: 5, bron: 'Google', tekst: 'Wat een heerlijk plekje om even helemaal tot rust te komen! Bij aankomst werden we super hartelijk ontvangen door Marja en Peter, waardoor we ons meteen thuis voelden. Het huisje is ontzettend sfeervol, brandschoon en heeft een heerlijk bed. ’s Ochtends met een kop koffie op het terras zitten terwijl je alleen maar vogeltjes hoort, voelt echt als een mini-vakantie. Echt een aanrader!' },
-        { naam: 'Hendrik', sterren: 5, bron: 'Google', tekst: 'Wij hebben hier een lang weekend gezeten om te fietsen en te wandelen in de omgeving, en daar is Even naar Meppen de perfecte uitvalsbasis voor. Meppen zelf is een prachtig, authentiek Drents dorpje en je loopt zo de bossen in of richting het Mantingerveld. Het verblijf heeft een fijne eigen woonkamer met een goede bank en prima douche. Wij komen zeker nog eens terug!' },
-        { naam: 'Marloes', sterren: 5, bron: 'Google', tekst: 'Jammer genoeg waren we er maar één nachtje, want we hadden hier makkelijk een paar dagen langer willen blijven. De communicatie vooraf verliep heel soepel en het welkom was enorm gastvrij. Het verblijf ziet eruit om door een ringetje te halen, met verse bloemen op tafel en uitzicht op het groen. Alles wat je nodig hebt voor een ontspannen nacht weg is aanwezig. Dank aan Marja en Peter voor de goede zorgen!' }
-      ];
-    }
-
-    if (demo) {
-      var robots = document.createElement('meta');
-      robots.name = 'robots'; robots.content = 'noindex';
-      document.head.appendChild(robots);
-    }
     if (!list.length) return;
 
     var star = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5l-5.9 3.1 1.2-6.5L2.5 9.5l6.6-.9z"/></svg>';
@@ -1307,11 +1287,10 @@
         '<blockquote>' + esc(r.tekst) + '</blockquote></figure>';
     }).join('');
 
-    var avg = sample ? '4,86' : (sum / list.length).toFixed(1).replace('.', ',');
-    document.getElementById('rev-score').innerHTML = '<strong>' + avg + '</strong> van 5' + (sample ? '' : ', uit ' + list.length + (list.length === 1 ? ' review' : ' reviews'));
-    var note = document.getElementById('rev-note');
-    note.textContent = 'Dit zijn voorbeeldreviews. Je ziet ze alleen in de voorbeeldversie. Zet echte reviews in reviews.js en dit blok komt op de gewone pagina.';
-    note.hidden = true;
+    // Vaste score uit reviews.js, anders het gemiddelde van de reviews in de lijst.
+    var fixed = String(window.REVIEWS_SCORE == null ? '' : window.REVIEWS_SCORE).trim();
+    var avg = fixed ? esc(fixed) : (sum / list.length).toFixed(1).replace('.', ',');
+    document.getElementById('rev-score').innerHTML = '<strong>' + avg + '</strong> van 5' + (fixed ? '' : ', uit ' + list.length + (list.length === 1 ? ' review' : ' reviews'));
     document.getElementById('reviews').hidden = false;
 
     // score boven de titel
