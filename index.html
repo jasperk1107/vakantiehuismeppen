@@ -9,11 +9,9 @@
 <meta property="og:description" content="Logeer in de oude ijssalon in het hartje van Meppen, een authentiek Drents dorpje.">
 <meta property="og:image" content="https://vakantiehuismeppen.nl/img/foto-03.jpg">
 <link rel="canonical" href="https://vakantiehuismeppen.nl/">
-<link rel="preconnect" href="https://api.fontshare.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -21,8 +19,8 @@
   "@type": "LodgingBusiness",
   "name": "Vakantiehuisje Even naar Meppen",
   "url": "https://vakantiehuismeppen.nl/",
-  "telephone": "+31622561676",
   "priceRange": "€ 119 per nacht",
+  "telephone": "+31622561676",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Brinken 9",
@@ -37,181 +35,307 @@
 
 <style>
   :root {
-    --bg: #f5f3ee;
-    --surface: #fffdf9;
-    --ink: #1f2421;
-    --muted: #5f6761;
-    --line: #dbd7cc;
-    --accent: #3b5d49;
-    --accent-dark: #2e4a3a;
-    --accent-soft: #e3eae2;
-    --board: #1d211f;
-    --chalk: #f1ede2;
-    --danger: #a3372f;
-    --head: "Cabinet Grotesk", "Helvetica Neue", Arial, sans-serif;
-    --body: "Satoshi", "Helvetica Neue", Arial, sans-serif;
+    --cream: #f4eee2;
+    --paper: #fbf8f1;
+    --ink: #24282a;
+    --ink-soft: #5a6160;
+    --sage: #b4c6aa;
+    --sage-deep: #55704f;
+    --petrol: #2c6a70;
+    --oak: #b67f43;
+    --oleander: #dd6f8c;
+    --board: #1c211f;
+    --chalk: #f3efe4;
+    --line: rgba(36, 40, 42, .14);
+    --display: "Fraunces", Georgia, serif;
+    --body: "Instrument Sans", "Helvetica Neue", sans-serif;
     --hand: "Caveat", "Bradley Hand", cursive;
+    --wrap: min(1160px, 100% - 40px);
+    --bg: var(--cream);
+    --surface: var(--paper);
+    --muted: var(--ink-soft);
+    --accent: var(--petrol);
+    --accent-dark: #235a5f;
+    --accent-soft: #dbe8e7;
+    --danger: #a3372f;
+    --head: var(--display);
     --ease: cubic-bezier(.16, 1, .3, 1);
-    --wrap: min(1200px, 100% - 40px);
   }
 
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
-    background: var(--bg);
+    background: var(--cream);
     color: var(--ink);
     font-family: var(--body);
     font-size: 17px;
-    line-height: 1.65;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+  }
+  /* zachte papierkorrel over de hele pagina */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: .35;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .4 0 0 0 0 .33 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   img { display: block; max-width: 100%; height: auto; }
   a { color: inherit; }
-  figure { margin: 0; }
   .wrap { width: var(--wrap); margin-inline: auto; }
 
-  h1, h2, h3 { font-family: var(--head); font-weight: 700; line-height: 1.08; letter-spacing: -.02em; margin: 0; }
-  h1 { font-size: clamp(2.3rem, 4.5vw, 3.7rem); font-weight: 800; letter-spacing: -.03em; }
-  h2 { font-size: clamp(1.8rem, 3.2vw, 2.7rem); }
-  h3 { font-size: 1.45rem; }
-  p { margin: 0 0 1em; max-width: 62ch; }
-  .muted { color: var(--muted); }
+  h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.05; margin: 0; letter-spacing: -.015em; }
+  h2 { font-size: clamp(2rem, 4.6vw, 3.4rem); }
+  h3 { font-size: 1.5rem; line-height: 1.15; }
+  p { margin: 0 0 1em; }
+  em { font-style: italic; }
 
-  /* klein kopje boven een titel: gewone letters, geen hoofdletters */
-  .label {
-    display: flex; align-items: center; gap: 10px;
-    font-size: .95rem; font-weight: 500; color: var(--accent);
-    margin: 0 0 14px;
+  .eyebrow {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--sage-deep);
+    margin: 0 0 18px;
   }
-  .label::before { content: ""; width: 22px; height: 1.5px; background: currentColor; }
-
-  section { padding: clamp(64px, 8vw, 112px) 0; }
-  section[id], div[id] { scroll-margin-top: 20px; }
 
   /* ---------- knoppen ---------- */
   .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-    min-height: 52px; padding: 0 22px;
-    border-radius: 10px; border: 1.5px solid transparent;
-    font: 700 1rem var(--body);
-    text-decoration: none; cursor: pointer;
-    transition: transform .3s var(--ease), background-color .3s var(--ease), border-color .3s var(--ease), color .3s var(--ease);
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 15px 24px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
   }
-  .btn:active { transform: scale(.98); }
-  .btn-primary { background: var(--accent); color: #fff; }
-  .btn-primary:hover { background: var(--accent-dark); }
-  .btn-quiet { border-color: var(--ink); color: var(--ink); background: transparent; }
-  .btn-quiet:hover { background: var(--ink); color: var(--bg); }
-  .btn svg { width: 18px; height: 18px; flex: none; transition: transform .3s var(--ease); }
-  .btn:hover svg { transform: translateX(3px); }
-  .btn[disabled] { opacity: .6; cursor: progress; }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .btn-primary { background: var(--petrol); color: #fff; box-shadow: 0 10px 24px -12px rgba(44, 106, 112, .9); }
+  .btn-primary:hover { transform: translateY(-2px); background: #235a5f; }
+  .btn-ghost { border: 1.5px solid var(--ink); color: var(--ink); }
+  .btn-ghost:hover { background: var(--ink); color: var(--cream); }
+  .btn svg { width: 18px; height: 18px; flex: none; }
 
   /* ---------- navigatie ---------- */
-  .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0; }
-  .wordmark { font: 800 1.15rem var(--head); letter-spacing: -.02em; text-decoration: none; }
-  .nav-links { display: flex; align-items: center; gap: 30px; font-size: .97rem; }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 0;
+  }
+  .wordmark {
+    font-family: var(--display); font-style: italic; font-size: 1.35rem;
+    text-decoration: none; letter-spacing: -.01em;
+  }
+  .wordmark span { color: var(--oleander); }
+  .nav-links { display: flex; align-items: center; gap: 28px; font-size: .95rem; }
   .nav-links a { text-decoration: none; }
-  .nav-links a:hover { text-decoration: underline; text-underline-offset: 6px; }
-  .nav-links .tel { font-weight: 700; }
+  .nav-links a:not(.btn):hover { text-decoration: underline; text-underline-offset: 5px; }
+  .nav .btn { padding: 10px 18px; font-size: .92rem; }
 
   /* ---------- hero ---------- */
-  .hero { padding: clamp(20px, 4vw, 56px) 0 clamp(72px, 9vw, 120px); }
-  .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
-  .hero .lead { font-size: clamp(1.06rem, 1.4vw, 1.2rem); color: #343a36; margin: 24px 0 30px; max-width: 34em; }
-  .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
-  .hero-price { margin: 18px 0 0; font-size: .97rem; color: var(--muted); }
+  .hero { padding: 36px 0 90px; position: relative; overflow: clip; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    gap: clamp(28px, 5vw, 72px);
+    align-items: center;
+  }
+  h1 {
+    font-size: clamp(2.7rem, 7.2vw, 5.6rem);
+    line-height: .96;
+    letter-spacing: -.03em;
+  }
+  h1 em {
+    display: block;
+    color: var(--petrol);
+    font-weight: 400;
+    margin-top: .08em;
+    white-space: nowrap;
+  }
+  .lead { font-size: clamp(1.08rem, 1.5vw, 1.25rem); max-width: 34em; margin: 28px 0 34px; color: #363b3c; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; }
+  .hero-price { margin: 20px 0 0; font-size: .98rem; color: var(--ink-soft); }
   .hero-price strong { color: var(--ink); }
+  .btn:active { transform: scale(.98); }
+  .btn[disabled] { opacity: .6; cursor: progress; }
+  section[id] { scroll-margin-top: 16px; }
 
-  .hero-art { position: relative; padding-left: 9%; padding-bottom: 9%; }
-  .hero-main { border-radius: 14px; overflow: hidden; aspect-ratio: 4 / 5; background: var(--line); }
+  .hero-art { position: relative; padding: 0 0 70px 40px; }
+  .hero-main {
+    border-radius: 999px 999px 22px 22px;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    box-shadow: 0 40px 70px -40px rgba(36, 40, 42, .55);
+  }
   .hero-main img { width: 100%; height: 100%; object-fit: cover; }
   .hero-side {
-    position: absolute; left: 0; bottom: 0; width: 44%;
-    border-radius: 12px; overflow: hidden;
-    border: 6px solid var(--bg);
-    aspect-ratio: 4 / 3; background: var(--line);
+    position: absolute; left: 0; bottom: 0;
+    width: 56%;
+    border: 8px solid var(--paper);
+    border-radius: 14px;
+    overflow: hidden;
+    transform: rotate(-3deg);
+    box-shadow: 0 24px 40px -22px rgba(36, 40, 42, .6);
   }
-  .hero-side img { width: 100%; height: 100%; object-fit: cover; }
-  .hero-art figcaption { position: absolute; right: 0; bottom: 0; width: 50%; font-size: .88rem; line-height: 1.45; color: var(--muted); padding-bottom: 6px; }
+  .stamp {
+    position: absolute; right: -14px; top: 8%;
+    width: 132px; height: 132px;
+    animation: spin 40s linear infinite;
+  }
+  .stamp text { font-family: var(--body); font-size: 12px; letter-spacing: .07em; font-weight: 600; fill: var(--ink); }
+  .stamp-core {
+    position: absolute; right: -14px; top: 8%;
+    width: 132px; height: 132px;
+    display: grid; place-items: center;
+    pointer-events: none;
+  }
+  .stamp-core span {
+    width: 74px; height: 74px; border-radius: 50%;
+    background: var(--oleander); color: #fff;
+    display: grid; place-items: center;
+    font-family: var(--hand); font-size: 1.5rem; font-weight: 700; line-height: .9; text-align: center;
+    transform: rotate(-8deg);
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
 
-  .facts { border-block: 1px solid var(--line); }
-  .facts ul { list-style: none; margin: 0 auto; padding: 18px 0; display: flex; flex-wrap: wrap; gap: 8px 0; font-size: .97rem; }
-  .facts li { padding-right: 22px; margin-right: 22px; border-right: 1px solid var(--line); }
-  .facts li:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
+  /* ---------- feitenstrook ---------- */
+  .facts {
+    border-block: 1px solid var(--line);
+    background: var(--paper);
+  }
+  .facts ul {
+    list-style: none; margin: 0 auto; padding: 0;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+  }
+  .facts li { padding: 26px 22px; border-left: 1px solid var(--line); }
+  .facts li:first-child { border-left: 0; padding-left: 0; }
+  .facts strong { display: block; font-family: var(--display); font-weight: 400; font-size: 1.35rem; line-height: 1.15; }
+  .facts span { font-size: .92rem; color: var(--ink-soft); }
+
+  section { padding: clamp(70px, 9vw, 120px) 0; }
 
   /* ---------- het huisje ---------- */
-  .intro { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(24px, 6vw, 96px); align-items: end; margin-bottom: clamp(48px, 6vw, 80px); }
+  .intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 80px); align-items: end; margin-bottom: 56px; }
+  .intro p { color: #363b3c; max-width: 32em; }
   .intro p:last-child { margin-bottom: 0; }
-  .intro .text { color: #343a36; }
 
-  .row { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: center; }
-  .row + .row { margin-top: clamp(48px, 7vw, 96px); }
-  .row .pic { border-radius: 14px; overflow: hidden; background: var(--line); cursor: zoom-in; }
-  .row .pic img { width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ease); }
-  .row .pic:hover img { transform: scale(1.03); }
-  .row .copy h3 { margin-bottom: 12px; }
-  .row .copy p { color: #343a36; margin-bottom: 0; }
-  .row .copy ul { list-style: none; padding: 0; margin: 20px 0 0; border-top: 1px solid var(--line); }
-  .row .copy li { padding: 11px 0; border-bottom: 1px solid var(--line); font-size: .97rem; }
-  .row-a .pic { grid-column: 1 / span 5; aspect-ratio: 4 / 5; }
-  .row-a .copy { grid-column: 7 / span 5; }
-  .row-b .pic { grid-column: 5 / span 8; grid-row: 1; aspect-ratio: 16 / 10; }
-  .row-b .copy { grid-column: 1 / span 4; grid-row: 1; }
-  .row-c .pic { grid-column: 1 / span 6; aspect-ratio: 4 / 3; }
-  .row-c .copy { grid-column: 8 / span 4; }
+  .rooms { display: grid; grid-template-columns: 1.15fr .85fr; grid-template-rows: 350px 350px; gap: 22px; }
+  .room { position: relative; border-radius: 18px; overflow: hidden; background: var(--ink); cursor: zoom-in; }
+  .room img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2, .7, .2, 1); }
+  .room:hover img { transform: scale(1.035); }
+  .room figcaption {
+    position: absolute; inset: auto 0 0 0;
+    padding: 70px 26px 24px;
+    color: #fff;
+    background: linear-gradient(to top, rgba(20, 22, 22, .82), rgba(20, 22, 22, 0));
+  }
+  .room figcaption h3 { margin-bottom: 6px; }
+  .room figcaption p { margin: 0; font-size: .98rem; max-width: 30em; opacity: .93; }
+  .room-tall { grid-row: span 2; }
+  figure { margin: 0; }
+
+  .sleep {
+    margin-top: 22px;
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 26px;
+    padding: 24px 28px;
+    border: 1.5px dashed var(--oak);
+    border-radius: 18px;
+    background: rgba(182, 127, 67, .08);
+  }
+  .sleep h3 { font-size: 1.35rem; }
+  .sleep p { margin: 0; }
+
+  /* nog in te vullen */
+  .todo {
+    background: #ffe3ea;
+    color: #9c2c4b;
+    border-radius: 6px;
+    padding: 1px 8px;
+    font-weight: 600;
+    font-family: var(--body);
+    font-size: .92em;
+    white-space: nowrap;
+  }
 
   /* ---------- krijtbord ---------- */
   .board {
     background:
-      radial-gradient(120% 90% at 20% 0%, rgba(255, 255, 255, .06), transparent 60%),
-      radial-gradient(90% 70% at 90% 100%, rgba(255, 255, 255, .04), transparent 60%),
+      radial-gradient(120% 90% at 20% 0%, rgba(255, 255, 255, .07), transparent 60%),
+      radial-gradient(90% 70% at 90% 100%, rgba(255, 255, 255, .05), transparent 60%),
       var(--board);
     color: var(--chalk);
     position: relative;
   }
-  .board::after { content: ""; position: absolute; inset: 16px; border: 2px solid rgba(241, 237, 226, .25); border-radius: 8px; pointer-events: none; }
+  .board::after {
+    content: ""; position: absolute; inset: 18px;
+    border: 2px solid rgba(243, 239, 228, .28);
+    border-radius: 10px;
+    pointer-events: none;
+  }
   .board-grid { padding-inline: clamp(14px, 3.5vw, 44px); display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(28px, 6vw, 90px); align-items: start; }
-  .board .label { color: #b9cbb4; }
-  .board h2 { font-family: var(--hand); font-weight: 700; font-size: clamp(2.8rem, 6vw, 4.4rem); line-height: .95; letter-spacing: 0; transform: rotate(-2deg); transform-origin: left; }
-  .board h2 u { text-decoration: none; background: linear-gradient(transparent 84%, #b9cbb4 84%, #b9cbb4 92%, transparent 92%); }
-  .board-note { margin-top: 30px; max-width: 24em; color: rgba(241, 237, 226, .78); }
+  .board .eyebrow { color: var(--sage); }
+  .board h2 { font-family: var(--hand); font-weight: 700; font-size: clamp(2.8rem, 6vw, 4.6rem); line-height: .95; letter-spacing: 0; transform: rotate(-2deg); transform-origin: left; }
+  .board h2 u { text-decoration: none; background: linear-gradient(transparent 82%, var(--oleander) 82%, var(--oleander) 92%, transparent 92%); }
+  .board-note { margin-top: 30px; max-width: 24em; color: rgba(243, 239, 228, .78); }
   .menu { list-style: none; margin: 0; padding: 0; font-family: var(--hand); font-size: clamp(1.45rem, 2.4vw, 1.85rem); line-height: 1.2; }
   .menu li { display: flex; align-items: baseline; gap: 12px; padding: 11px 0; }
-  .menu li::before { content: ""; flex: none; width: 7px; height: 7px; border: 1.5px solid #b9cbb4; border-radius: 50%; transform: translateY(-.15em); }
+  .menu li::before { content: "✳"; font-family: var(--body); font-size: .6em; color: var(--sage); transform: translateY(-.2em); }
   .menu b { font-weight: 700; white-space: nowrap; }
-  .menu i { flex: 1; border-bottom: 2px dotted rgba(241, 237, 226, .35); transform: translateY(-.25em); min-width: 20px; }
-  .menu span { font-family: var(--body); font-size: .98rem; color: rgba(241, 237, 226, .8); text-align: right; }
+  .menu i { flex: 1; border-bottom: 2px dotted rgba(243, 239, 228, .35); transform: translateY(-.25em); min-width: 20px; }
+  .menu span { font-family: var(--body); font-size: .98rem; color: rgba(243, 239, 228, .8); text-align: right; }
+  .menu .todo { background: rgba(221, 111, 140, .25); color: #ffc4d2; }
 
   /* ---------- terras ---------- */
-  .terrace { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: start; }
-  .terrace .t-main { grid-column: 1 / span 5; border-radius: 14px; overflow: hidden; aspect-ratio: 3 / 4; cursor: zoom-in; background: var(--line); }
-  .terrace .t-main img, .terrace .t-side img { width: 100%; height: 100%; object-fit: cover; }
-  .terrace .t-copy { grid-column: 7 / span 6; padding-top: clamp(0px, 4vw, 56px); }
-  .terrace .t-copy h2 { margin-bottom: 20px; }
-  .terrace .t-copy p { color: #343a36; }
-  .terrace .t-side { margin-top: 36px; border-radius: 14px; overflow: hidden; aspect-ratio: 16 / 9; cursor: zoom-in; background: var(--line); }
-  .ticks { list-style: none; padding: 0; margin: 24px 0 0; border-top: 1px solid var(--line); }
-  .ticks li { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .terrace-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(28px, 6vw, 90px); align-items: center; }
+  .terrace-art { position: relative; padding-right: 15%; }
+  .terrace-art .a { border-radius: 18px; overflow: hidden; aspect-ratio: 3 / 4; cursor: zoom-in; }
+  .terrace-art .a img { width: 100%; height: 100%; object-fit: cover; }
+  .terrace-art .b {
+    position: absolute; right: 0; bottom: -34px; width: 52%;
+    border: 8px solid var(--cream); border-radius: 14px; overflow: hidden; transform: rotate(2.5deg);
+    box-shadow: 0 24px 40px -22px rgba(36, 40, 42, .6);
+    cursor: zoom-in;
+  }
+  .terrace-copy p { color: #363b3c; max-width: 30em; }
+  .terrace-copy h2 { margin-bottom: 26px; }
+  .ticks { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 12px; }
+  .ticks li { display: flex; gap: 12px; align-items: flex-start; }
+  .ticks li::before { content: ""; flex: none; width: 10px; height: 10px; margin-top: .55em; border-radius: 50%; background: var(--oleander); }
 
   /* ---------- omgeving ---------- */
-  .around { background: var(--surface); border-block: 1px solid var(--line); }
-  .around-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 6vw, 96px); align-items: end; margin-bottom: 40px; }
-  .around-head p { margin: 0; color: #343a36; }
-  .strip {
-    display: flex; gap: 14px;
-    overflow-x: auto; scroll-snap-type: x proximity;
-    padding: 0 max(20px, calc((100% - 1200px) / 2)) 14px;
-    scrollbar-width: thin; scrollbar-color: var(--line) transparent;
+  .around { background: var(--sage); }
+  .around .eyebrow { color: #33492f; }
+  .around-head { max-width: 720px; margin-bottom: 54px; }
+  .mosaic { display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: 430px 290px; gap: 16px; margin-bottom: 60px; }
+  .mosaic figure { border-radius: 16px; overflow: hidden; cursor: zoom-in; position: relative; }
+  .mosaic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2, .7, .2, 1); }
+  .mosaic figure:hover img { transform: scale(1.04); }
+  .m1 { grid-column: span 7; }
+  .m2 { grid-column: span 5; }
+  .m3, .m4, .m5 { grid-column: span 4; }
+  .trips { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1.5px solid rgba(36, 40, 42, .35); }
+  .trip { padding: 26px 24px 0 0; }
+  .trip + .trip { padding-left: 24px; border-left: 1px solid rgba(36, 40, 42, .2); }
+  .trip .num { font-family: var(--display); font-style: italic; font-size: 2.6rem; line-height: 1; display: block; margin-bottom: 14px; color: #2d4329; }
+  .trip h3 { font-size: 1.3rem; margin-bottom: 8px; }
+  .trip p { font-size: .98rem; margin: 0; color: #2c3331; }
+
+  /* ---------- praktisch ---------- */
+  .practical-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 70px); }
+  .specs { margin: 34px 0 0; border-top: 1px solid var(--line); }
+  .specs div { display: flex; justify-content: space-between; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .specs dt { color: var(--ink-soft); }
+  .specs dd { margin: 0; font-weight: 500; text-align: right; }
+  .card {
+    background: var(--paper);
+    border-radius: 22px;
+    padding: 14px;
+    box-shadow: 0 30px 60px -40px rgba(36, 40, 42, .5);
   }
-  .strip figure { flex: none; height: clamp(240px, 32vw, 400px); border-radius: 12px; overflow: hidden; scroll-snap-align: center; cursor: zoom-in; background: var(--line); }
-  .strip img { height: 100%; width: auto; max-width: none; }
-  .trips { margin: 48px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--ink); }
-  .trips li { display: grid; grid-template-columns: 150px minmax(0, 1fr) minmax(0, 1.6fr); gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
-  .trips .dist { font: 700 1.15rem var(--head); color: var(--accent); font-variant-numeric: tabular-nums; }
-  .trips h3 { font-size: 1.2rem; }
-  .trips p { margin: 0; color: #343a36; }
+  .card iframe { width: 100%; height: 300px; border: 0; border-radius: 12px; display: block; filter: saturate(.85); }
+  .card-body { padding: 22px 14px 12px; }
+  .card-body h3 { margin-bottom: 8px; }
+  .card-body address { font-style: normal; color: var(--ink-soft); margin-bottom: 20px; }
+  .card-cta { display: flex; flex-wrap: wrap; gap: 12px; }
 
   /* ---------- boeken ---------- */
   .book-head { max-width: 640px; margin-bottom: 40px; }
@@ -269,7 +393,7 @@
   .cal-months:empty { background: linear-gradient(100deg, var(--line) 30%, #ebe8df 50%, var(--line) 70%) 0 0 / 200% 100%; border-radius: 12px; opacity: .5; animation: shimmer 1.4s linear infinite; }
   @keyframes shimmer { to { background-position: -200% 0; } }
 
-  .panel { position: sticky; top: 20px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); padding: clamp(20px, 2.4vw, 30px); }
+  .panel { position: sticky; top: 20px; border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 30px 60px -44px rgba(36, 40, 42, .5); background: var(--surface); padding: clamp(20px, 2.4vw, 30px); }
   .stay-empty { color: var(--muted); margin: 0 0 22px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
   .stay { margin: 0 0 22px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
   .stay-dates { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 0 0 16px; }
@@ -278,12 +402,12 @@
   .stay-lines { margin: 0; padding: 0; list-style: none; font-size: .97rem; color: #343a36; }
   .stay-lines li { display: flex; justify-content: space-between; gap: 12px; padding: 3px 0; font-variant-numeric: tabular-nums; }
   .stay-total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
-  .stay-total strong { font: 800 1.6rem var(--head); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .stay-total strong { font: 600 1.7rem var(--head); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
   .reset { background: none; border: 0; padding: 0; margin-top: 10px; font: inherit; font-size: .92rem; color: var(--muted); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
   .reset:hover { color: var(--ink); }
 
   .field { display: grid; gap: 8px; margin-bottom: 18px; }
-  .field label { font-weight: 700; font-size: .97rem; }
+  .field label { font-weight: 600; font-size: .97rem; }
   .field input {
     width: 100%; min-height: 50px; padding: 0 14px;
     border: 1.5px solid var(--line); border-radius: 10px;
@@ -302,39 +426,55 @@
   .done p { color: #343a36; }
   .done .btn { margin-top: 6px; }
 
-  /* ---------- adres ---------- */
   .where { padding-top: 0; }
-  .where-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(24px, 5vw, 72px); align-items: center; border-top: 1px solid var(--line); padding-top: clamp(48px, 6vw, 80px); }
-  .where address { font-style: normal; margin: 14px 0 24px; color: #343a36; }
-  .where-links { display: flex; flex-wrap: wrap; gap: 12px; }
-  .where iframe { width: 100%; height: 340px; border: 1px solid var(--line); border-radius: 14px; display: block; filter: saturate(.8); }
+  .where-address { font-style: normal; color: var(--ink-soft); margin: 18px 0 24px; }
+  .where .card iframe { height: 340px; }
 
-  footer { border-top: 1px solid var(--line); padding: 26px 0 110px; font-size: .92rem; color: var(--muted); }
-  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; }
+  /* ---------- afsluiter ---------- */
+  .closing { background: var(--petrol); color: #fff; text-align: center; }
+  .closing h2 { font-size: clamp(2.2rem, 5.4vw, 4.2rem); max-width: 16em; margin: 0 auto 18px; }
+  .closing h2 em { color: #ffd7e0; }
+  .closing p { max-width: 30em; margin: 0 auto 34px; opacity: .92; font-size: 1.1rem; }
+  .closing .btn-primary { background: #fff; color: var(--petrol); box-shadow: none; font-size: 1.15rem; padding: 18px 30px; }
+  .closing .btn-primary:hover { background: var(--cream); }
+  .closing small { display: block; margin-top: 18px; opacity: .85; font-size: .95rem; }
 
-  /* ---------- vaste knop mobiel ---------- */
-  .stickybar {
-    position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 20;
-    display: none;
+  footer { padding: 30px 0 110px; font-size: .9rem; color: var(--ink-soft); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+  /* ---------- belbalk mobiel ---------- */
+  .callbar {
+    position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 50;
+    display: none; justify-content: center;
+    background: var(--petrol); color: #fff;
+    padding: 15px 20px; border-radius: 999px;
+    font-weight: 600; text-decoration: none;
+    box-shadow: 0 16px 30px -12px rgba(20, 22, 22, .6);
     transition: transform .4s var(--ease), opacity .4s var(--ease);
   }
-  .stickybar .btn { width: 100%; box-shadow: 0 14px 30px -14px rgba(31, 36, 33, .6); }
-  .stickybar.away { transform: translateY(140%); opacity: 0; pointer-events: none; }
+  .callbar.away { transform: translateY(140%); opacity: 0; pointer-events: none; }
 
   /* ---------- lightbox ---------- */
   dialog.lightbox { border: 0; padding: 0; background: transparent; max-width: 94vw; max-height: 94vh; }
-  dialog.lightbox::backdrop { background: rgba(24, 28, 26, .9); }
-  dialog.lightbox img { max-width: 94vw; max-height: 90vh; border-radius: 8px; }
-  dialog.lightbox button { position: fixed; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 10px; border: 0; background: #fff; color: var(--ink); cursor: pointer; display: grid; place-items: center; }
-  dialog.lightbox button svg { width: 18px; height: 18px; }
+  dialog.lightbox::backdrop { background: rgba(20, 22, 22, .88); }
+  dialog.lightbox img { max-width: 94vw; max-height: 90vh; border-radius: 10px; }
+  dialog.lightbox button {
+    position: fixed; top: 16px; right: 16px;
+    width: 44px; height: 44px; border-radius: 50%; border: 0;
+    background: #fff; color: var(--ink); font-size: 1.4rem; cursor: pointer;
+  }
 
   /* ---------- beweging ---------- */
-  .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: calc(var(--i, 0) * 90ms); }
+  .js .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1); }
   .js .reveal.in { opacity: 1; transform: none; }
-  .hero .load { animation: rise 1s var(--ease) both; animation-delay: calc(var(--i, 0) * 90ms); }
-  @keyframes rise { from { opacity: 0; transform: translateY(20px); } }
+  .hero .eyebrow, .hero h1, .hero .lead, .hero-cta, .hero-price, .hero-art { animation: rise .9s cubic-bezier(.2, .7, .2, 1) both; }
+  .hero h1 { animation-delay: .08s; }
+  .hero .lead { animation-delay: .18s; }
+  .hero-cta { animation-delay: .28s; }
+  .hero-price { animation-delay: .36s; }
+  .hero-art { animation-delay: .2s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(24px); } }
   @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
     *, *::before, *::after { animation: none !important; transition: none !important; }
     .js .reveal { opacity: 1; transform: none; }
   }
@@ -342,32 +482,51 @@
   /* ---------- kleiner scherm ---------- */
   @media (max-width: 900px) {
     body { font-size: 16.5px; }
-    .nav-links a:not(.tel) { display: none; }
-    .hero-grid, .intro, .board-grid, .around-head, .book, .where-grid { grid-template-columns: 1fr; }
-    .hero-art { max-width: 560px; }
-    .row { display: block; }
-    .row .pic { margin-bottom: 22px; }
-    .row-a .pic { aspect-ratio: 4 / 5; }
+    .nav-links a:not(.btn) { display: none; }
+    .hero { padding: 14px 0 70px; }
+    .hero-grid, .intro, .board-grid, .terrace-grid, .practical-grid { grid-template-columns: 1fr; }
+    .hero-art { padding: 0 0 56px 26px; max-width: 520px; margin-inline: auto; width: 100%; }
+    .stamp, .stamp-core { width: 108px; height: 108px; right: -6px; }
+    .stamp-core span { width: 60px; height: 60px; font-size: 1.25rem; }
+    .facts ul { grid-template-columns: repeat(2, 1fr); }
+    .facts li { padding: 20px 16px; }
+    .facts li:nth-child(odd) { border-left: 0; padding-left: 0; }
+    .facts li:nth-child(n+3) { border-top: 1px solid var(--line); }
+    .rooms { grid-template-columns: 1fr; grid-template-rows: none; }
+    .room-tall { grid-row: auto; aspect-ratio: 3 / 4; }
+    .room-wide { aspect-ratio: 4 / 3; }
     .menu li { flex-wrap: wrap; }
+    .menu span { text-align: left; flex-basis: 100%; padding-left: 26px; }
     .menu i { display: none; }
-    .menu span { text-align: left; flex-basis: 100%; padding-left: 19px; }
-    .terrace { display: block; }
-    .terrace .t-main { margin-bottom: 28px; max-width: 480px; }
-    .trips li { grid-template-columns: 1fr; gap: 4px; }
+    .terrace-art { max-width: 480px; margin-bottom: 40px; }
+    .mosaic { grid-template-columns: repeat(2, 1fr); grid-template-rows: none; gap: 10px; }
+    .m1 { grid-column: span 2; aspect-ratio: 4 / 3; }
+    .m2 { grid-column: span 2; aspect-ratio: 4 / 5; }
+    .m3, .m4 { grid-column: span 1; aspect-ratio: 1; }
+    .m5 { grid-column: span 2; aspect-ratio: 4 / 3; }
+    .trips { grid-template-columns: 1fr 1fr; }
+    .trip, .trip + .trip { padding: 22px 16px 22px 0; border-left: 0; }
+    .trip:nth-child(even) { padding-left: 16px; border-left: 1px solid rgba(36, 40, 42, .2); }
+    .trip:nth-child(n+3) { border-top: 1px solid rgba(36, 40, 42, .2); }
+    .callbar { display: flex; }
+  }
+  @media (max-width: 520px) {
+    h1 em { white-space: normal; }
+    .trips { grid-template-columns: 1fr; }
+    .trip:nth-child(even) { padding-left: 0; border-left: 0; }
+    .trip + .trip { border-top: 1px solid rgba(36, 40, 42, .2); }
+    .board::after { inset: 10px; }
+  }
+
+  @media (max-width: 900px) {
+    .book { grid-template-columns: 1fr; }
     .cal-months { grid-template-columns: 1fr; min-height: 0; }
     .cal-month + .cal-month { display: none; }
     .panel { position: static; }
-    .stickybar { display: block; }
   }
   @media (max-width: 520px) {
-    .facts li { border-right: 0; margin-right: 0; padding-right: 0; flex-basis: 100%; }
-    .hero-cta .btn { width: 100%; }
-    .hero-art figcaption { position: static; width: auto; margin-top: 12px; }
-    .hero-art { padding-bottom: 0; padding-left: 0; }
-    .hero-side { display: none; }
-    .board::after { inset: 10px; }
     .cal-top { flex-direction: column-reverse; align-items: flex-start; }
-    .where-links .btn { width: 100%; }
+    .hero-cta .btn { width: 100%; justify-content: center; }
   }
 </style>
 </head>
@@ -376,12 +535,12 @@
 <script>document.documentElement.classList.add('js');</script>
 
 <header class="wrap nav">
-  <a class="wordmark" href="#top">Even naar Meppen</a>
+  <a class="wordmark" href="#top">Even naar Meppen<span>.</span></a>
   <nav class="nav-links" aria-label="Hoofdmenu">
     <a href="#ijssalon">De ijssalon</a>
     <a href="#omgeving">Omgeving</a>
     <a href="#boeken">Beschikbaarheid</a>
-    <a class="tel" href="tel:+31622561676">06 22561676</a>
+    <a class="btn btn-primary" href="tel:+31622561676">06 22561676</a>
   </nav>
 </header>
 
@@ -391,94 +550,84 @@
   <div class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="label load" style="--i:0">Brinken 9, Meppen (Drenthe)</p>
-        <h1 class="load" style="--i:1">Vakantiehuisje 'Even naar Meppen'</h1>
-        <p class="lead load" style="--i:2">Je logeert in de oude ijssalon, in het hartje van Meppen, een authentiek Drents dorpje. De pelletkachel brandt en door de tuindeuren kijk je op het rieten dak van de boerderij aan de overkant.</p>
-        <div class="hero-cta load" style="--i:3">
+        <p class="eyebrow">Brinken 9 · Meppen · Drenthe</p>
+        <h1>Vakantiehuisje <em>'Even naar Meppen'</em></h1>
+        <p class="lead">Je logeert in de oude ijssalon, in het hartje van Meppen, een authentiek Drents dorpje. De pelletkachel brandt en door de tuindeuren kijk je op het rieten dak van de boerderij aan de overkant.</p>
+        <div class="hero-cta">
           <a class="btn btn-primary" href="#boeken">
             Controleer beschikbaarheid
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a class="btn btn-quiet" href="#ijssalon">Bekijk de ijssalon</a>
+          <a class="btn btn-ghost" href="#ijssalon">Bekijk de ijssalon</a>
         </div>
-        <p class="hero-price load" style="--i:4"><strong>€ <span data-prijs>119</span> per nacht.</strong> Je ziet per dag wat vrij is.</p>
+        <p class="hero-price"><strong>€ <span data-prijs>119</span> per nacht.</strong> Je ziet per dag wat vrij is.</p>
       </div>
 
-      <figure class="hero-art load" style="--i:2">
+      <div class="hero-art">
         <div class="hero-main">
           <img src="img/foto-02.jpg" width="1050" height="1400" alt="Woonkamer met hoekbank, pelletkachel en tuindeuren, met uitzicht op een boerderij met rieten dak">
         </div>
         <div class="hero-side">
           <img src="img/foto-03.jpg" width="1400" height="1050" alt="Voorgevel van het vakantiehuisje met witte tuindeuren en bloeiende oleanders">
         </div>
-        <figcaption>De woonkamer. In het raam staat nog het logo van NONAS.</figcaption>
-      </figure>
+        <svg class="stamp" viewBox="0 0 132 132" aria-hidden="true">
+          <circle cx="66" cy="66" r="66" fill="#fbf8f1"/>
+          <defs><path id="ring" d="M66 66 m-52 0 a52 52 0 1 1 104 0 a52 52 0 1 1 -104 0"/></defs>
+          <text><textPath href="#ring">De oude ijssalon · in het hartje van Meppen ·</textPath></text>
+        </svg>
+        <div class="stamp-core" aria-hidden="true"><span>Nonas</span></div>
+      </div>
     </div>
   </div>
 
   <!-- FEITEN -->
   <div class="facts">
     <ul class="wrap">
-      <li>In het hartje van Meppen, een authentiek Drents dorpje</li>
-      <li>Pelletkachel</li>
-      <li>Eigen terras</li>
-      <li>Mepperdennen naast het dorp</li>
+      <li><strong>In het hartje van Meppen</strong><span>een authentiek Drents dorpje</span></li>
+      <li><strong>Pelletkachel</strong><span>in de woonkamer</span></li>
+      <li><strong>Eigen terras</strong><span>met tafel en twee parasols</span></li>
+      <li><strong>Mepperdennen</strong><span>het bos grenst aan het dorp</span></li>
     </ul>
   </div>
 
   <!-- HET HUISJE -->
   <section id="ijssalon">
     <div class="wrap">
-      <div class="intro">
-        <div class="reveal">
-          <p class="label">Het huisje</p>
+      <div class="intro reveal">
+        <div>
+          <p class="eyebrow">Het huisje</p>
           <h2>Vroeger haalde je hier een ijsje. Nu blijf je slapen.</h2>
         </div>
-        <div class="text reveal" style="--i:1">
+        <div>
           <p>In het raam staat nog het logo van NONAS Homemade Ice Cream. Aan de wand hangt de krijtbordkaart, met schepijs, milkshakes en appelcake.</p>
           <p>De rest is verbouwd tot vakantiehuisje. Je vindt er een hoekbank bij de pelletkachel, een open keuken en een eettafel voor vier.</p>
         </div>
       </div>
 
-      <div class="row row-a">
-        <figure class="pic reveal" data-full="fotos/foto-02.jpg">
+      <div class="rooms">
+        <figure class="room room-tall reveal" data-full="fotos/foto-02.jpg">
           <img src="img/foto-02.jpg" width="1050" height="1400" loading="lazy" alt="Woonkamer met hoekbank, pelletkachel, eiken balk en tuindeuren">
+          <figcaption>
+            <h3>Wonen</h3>
+            <p>Hoekbank, pelletkachel en een eiken balk boven de tuindeuren. Doe de deuren open en je stapt het terras op.</p>
+          </figcaption>
         </figure>
-        <div class="copy reveal" style="--i:1">
-          <h3>Wonen</h3>
-          <p>Je zit op de hoekbank bij de pelletkachel, onder een eiken balk en een wit houten plafond. Doe de tuindeuren open en je stapt het terras op.</p>
-          <ul>
-            <li>Hoekbank en salontafel</li>
-            <li>Pelletkachel</li>
-            <li>Tuindeuren naar het terras</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="row row-b">
-        <div class="copy reveal">
-          <h3>Koken en eten</h3>
-          <p>In de open keuken staan een oven, een kookplaat en een espressomachine. Aan de eettafel zitten jullie met z'n vieren, naast de krijtbordkaart van NONAS.</p>
-          <ul>
-            <li>Oven en kookplaat</li>
-            <li>Espressomachine en waterkoker</li>
-            <li>Eettafel met vier stoelen</li>
-          </ul>
-        </div>
-        <figure class="pic reveal" style="--i:1" data-full="fotos/foto-05.jpg">
+        <figure class="room room-wide reveal" data-full="fotos/foto-05.jpg">
           <img src="img/foto-05.jpg" width="1400" height="1050" loading="lazy" alt="Open keuken met groene tegels, eettafel met vier stoelen en de krijtbordkaart van Nonas aan de wand">
+          <figcaption>
+            <h3>Koken en eten</h3>
+            <p>Oven, kookplaat en een espressomachine. Aan de eettafel zitten jullie met z'n vieren.</p>
+          </figcaption>
+        </figure>
+        <figure class="room room-wide reveal" data-full="fotos/foto-06.jpg">
+          <img src="img/foto-06.jpg" width="1400" height="1050" loading="lazy" alt="Badkamer met houten wastafelmeubel, zwevend toilet en groenblauwe tegels">
+          <figcaption>
+            <h3>Badkamer</h3>
+            <p>Zwevend toilet met een opklapbare steun ernaast, zodat je makkelijk gaat zitten en weer opstaat.</p>
+          </figcaption>
         </figure>
       </div>
 
-      <div class="row row-c">
-        <figure class="pic reveal" data-full="fotos/foto-06.jpg">
-          <img src="img/foto-06.jpg" width="1400" height="1050" loading="lazy" alt="Badkamer met houten wastafelmeubel, zwevend toilet en groenblauwe tegels">
-        </figure>
-        <div class="copy reveal" style="--i:1">
-          <h3>Badkamer</h3>
-          <p>Naast het zwevende toilet zit een opklapbare steun, zodat je makkelijk gaat zitten en weer opstaat.</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -486,11 +635,11 @@
   <section class="board">
     <div class="wrap board-grid">
       <div class="reveal">
-        <p class="label">Voorzieningen</p>
+        <p class="eyebrow">Voorzieningen</p>
         <h2>Wat er nu <u>op de kaart</u> staat</h2>
         <p class="board-note">Schepijs staat er niet meer op. Dit vind je in het huisje als je aankomt.</p>
       </div>
-      <ul class="menu reveal" style="--i:1">
+      <ul class="menu reveal">
         <li><b>Pelletkachel</b><i></i><span>in de woonkamer</span></li>
         <li><b>Espressomachine</b><i></i><span>en een waterkoker</span></li>
         <li><b>Oven en kookplaat</b><i></i><span>in de open keuken</span></li>
@@ -503,12 +652,17 @@
 
   <!-- TERRAS -->
   <section>
-    <div class="wrap terrace">
-      <figure class="t-main reveal" data-full="fotos/foto-08.jpg">
-        <img src="img/foto-08.jpg" width="1050" height="1400" loading="lazy" alt="Terras met tuintafel, vier stoelen en twee parasols achter een houten schutting">
-      </figure>
-      <div class="t-copy reveal" style="--i:1">
-        <p class="label">Buiten</p>
+    <div class="wrap terrace-grid">
+      <div class="terrace-art reveal">
+        <div class="a" data-full="fotos/foto-08.jpg">
+          <img src="img/foto-08.jpg" width="1050" height="1400" loading="lazy" alt="Terras met tuintafel, vier stoelen en twee parasols achter een houten schutting">
+        </div>
+        <div class="b" data-full="fotos/foto-03.jpg">
+          <img src="img/foto-03.jpg" width="1400" height="1050" loading="lazy" alt="Voorgevel van het huisje met oleanders in blauwe potten">
+        </div>
+      </div>
+      <div class="terrace-copy reveal">
+        <p class="eyebrow">Buiten</p>
         <h2>Ontbijten op je eigen terras</h2>
         <p>Het terras ligt achter een houten schutting en een heg, dus je zit uit het zicht van de straat. Er staat een tafel met vier stoelen en er zijn twee parasols voor als de zon doorkomt.</p>
         <ul class="ticks">
@@ -516,54 +670,48 @@
           <li>Oleanders en hortensia's staan in bloei naast de voordeur.</li>
           <li>Over de heg zie je het rieten dak van de boerderij aan de overkant.</li>
         </ul>
-        <figure class="t-side" data-full="fotos/foto-03.jpg">
-          <img src="img/foto-03.jpg" width="1400" height="1050" loading="lazy" alt="Voorgevel van het huisje met oleanders in blauwe potten">
-        </figure>
       </div>
     </div>
   </section>
 
   <!-- OMGEVING -->
   <section class="around" id="omgeving">
-    <div class="wrap around-head">
-      <div class="reveal">
-        <p class="label">Omgeving</p>
+    <div class="wrap">
+      <div class="around-head reveal">
+        <p class="eyebrow">Omgeving</p>
         <h2>Loop de deur uit en je staat op de brink</h2>
       </div>
-      <p class="reveal" style="--i:1">Meppen is een esdorp met Saksische boerderijen, rieten daken en oude eiken langs de klinkerweg. Het bos begint aan de rand van het dorp.</p>
-    </div>
 
-    <div class="strip reveal" tabindex="0" aria-label="Foto's van Meppen, schuif opzij voor meer">
-      <figure data-full="fotos/foto-01.jpg"><img src="img/foto-01.jpg" width="1400" height="1050" loading="lazy" alt="De brink van Meppen met boerderijen, heggen en oude eiken"></figure>
-      <figure data-full="fotos/foto-07.jpg"><img src="img/foto-07.jpg" width="1050" height="1400" loading="lazy" alt="Bloembak voor een boerderij met rieten dak in Meppen"></figure>
-      <figure data-full="fotos/foto-09.jpg"><img src="img/foto-09.jpg" width="1400" height="1050" loading="lazy" alt="Oud houten hek onder de eiken"></figure>
-      <figure data-full="fotos/foto-04.jpg"><img src="img/foto-04.jpg" width="1400" height="934" loading="lazy" alt="Keramieken kippen op een houten hek"></figure>
-      <figure data-full="fotos/foto-10.jpg"><img src="img/foto-10.jpg" width="1400" height="1050" loading="lazy" alt="Kleine keramieken huisjes op een boomstam"></figure>
-    </div>
+      <div class="mosaic reveal">
+        <figure class="m1" data-full="fotos/foto-01.jpg"><img src="img/foto-01.jpg" width="1400" height="1050" loading="lazy" alt="De brink van Meppen met boerderijen, heggen en oude eiken"></figure>
+        <figure class="m2" data-full="fotos/foto-07.jpg"><img src="img/foto-07.jpg" width="1050" height="1400" loading="lazy" alt="Bloembak voor een boerderij met rieten dak in Meppen"></figure>
+        <figure class="m3" data-full="fotos/foto-09.jpg"><img src="img/foto-09.jpg" width="1400" height="1050" loading="lazy" alt="Oud houten hek onder de eiken"></figure>
+        <figure class="m4" data-full="fotos/foto-04.jpg"><img src="img/foto-04.jpg" width="1400" height="934" loading="lazy" alt="Keramieken kippen op een houten hek"></figure>
+        <figure class="m5" data-full="fotos/foto-10.jpg"><img src="img/foto-10.jpg" width="1400" height="1050" loading="lazy" alt="Kleine keramieken huisjes op een boomstam"></figure>
+      </div>
 
-    <div class="wrap">
-      <ul class="trips">
-        <li class="reveal">
-          <span class="dist">Voor de deur</span>
+      <div class="trips reveal">
+        <div class="trip">
+          <span class="num">0 km</span>
           <h3>De brink</h3>
           <p>Saksische boerderijen met rieten daken, heggen eromheen en oude eiken langs de klinkerweg.</p>
-        </li>
-        <li class="reveal">
-          <span class="dist">Te voet</span>
+        </div>
+        <div class="trip">
+          <span class="num">te voet</span>
           <h3>Mepperdennen</h3>
           <p>Het bos grenst aan het dorp. Trek je wandelschoenen aan in het huisje en je loopt er zo in.</p>
-        </li>
-        <li class="reveal">
-          <span class="dist">24,6 km fietsen</span>
+        </div>
+        <div class="trip">
+          <span class="num">24,6 km</span>
           <h3>Fietsronde Zweeloo</h3>
           <p>Vanuit Meppen fiets je langs het kerkje van Zweeloo, waar Van Gogh in 1883 werkte, en langs de rieten daken van Aalden.</p>
-        </li>
-        <li class="reveal">
-          <span class="dist">7,9 km wandelen</span>
+        </div>
+        <div class="trip">
+          <span class="num">7,9 km</span>
           <h3>Van Gogh-wandeling</h3>
           <p>De route start in Aalden en is grotendeels verhard, dus ook met een rolstoel of kinderwagen te doen.</p>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -571,7 +719,7 @@
   <section id="boeken">
     <div class="wrap">
       <div class="book-head reveal">
-        <p class="label">Beschikbaarheid en prijs</p>
+        <p class="eyebrow">Beschikbaarheid en prijs</p>
         <h2>Kies je dagen</h2>
         <p>Je betaalt € <span data-prijs>119</span> per nacht. Tik op je aankomstdag en daarna op je vertrekdag, dan zie je meteen wat je verblijf kost.</p>
       </div>
@@ -645,39 +793,45 @@
 
   <!-- ADRES -->
   <section class="where">
-    <div class="wrap where-grid">
+    <div class="wrap practical-grid" style="align-items:center">
       <div class="reveal">
-        <p class="label">Adres en route</p>
+        <p class="eyebrow">Adres en route</p>
         <h2>Brinken 9, Meppen</h2>
-        <address>Vakantiehuisje Even naar Meppen<br>Brinken 9, 7855 PC Meppen (Drenthe)</address>
-        <div class="where-links">
-          <a class="btn btn-quiet" href="https://www.google.com/maps/dir/?api=1&destination=Vakantiehuisje+Even+naar+Meppen%2C+Brinken+9%2C+7855+PC+Meppen" target="_blank" rel="noopener">Plan je route</a>
-          <a class="btn btn-quiet" href="tel:+31622561676">Bel 06 22561676</a>
+        <address class="where-address">Vakantiehuisje Even naar Meppen<br>Brinken 9, 7855 PC Meppen (Drenthe)</address>
+        <div class="card-cta">
+          <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&destination=Vakantiehuisje+Even+naar+Meppen%2C+Brinken+9%2C+7855+PC+Meppen" target="_blank" rel="noopener">Plan je route</a>
+          <a class="btn btn-ghost" href="tel:+31622561676">Bel 06 22561676</a>
         </div>
       </div>
-      <div class="reveal" style="--i:1">
+      <div class="card reveal">
         <iframe title="Kaart: Brinken 9, Meppen" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           src="https://www.google.com/maps?q=Vakantiehuisje+Even+naar+Meppen,+Brinken+9,+7855+PC+Meppen&z=15&output=embed"></iframe>
       </div>
+    </div>
+  </section>
+
+  <!-- AFSLUITER -->
+  <section class="closing">
+    <div class="wrap reveal">
+      <h2>Wanneer ga jij <em>even naar Meppen?</em></h2>
+      <p>Kies je dagen in de kalender. Je ziet direct wat je verblijf kost.</p>
+      <a class="btn btn-primary" href="#boeken">Controleer beschikbaarheid</a>
+      <small>Liever bellen? <a href="tel:+31622561676">06 22561676</a></small>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>Vakantiehuisje Even naar Meppen, Brinken 9, 7855 PC Meppen</span>
-    <a href="tel:+31622561676">06 22561676</a>
+    <span>Vakantiehuisje Even naar Meppen · Brinken 9, 7855 PC Meppen</span>
+    <span><a href="tel:+31622561676">06 22561676</a></span>
   </div>
 </footer>
 
-<div class="stickybar" id="stickybar">
-  <a class="btn btn-primary" href="#boeken">Controleer beschikbaarheid</a>
-</div>
+<a class="callbar" id="stickybar" href="#boeken">Controleer beschikbaarheid</a>
 
 <dialog class="lightbox" aria-label="Foto vergroot">
-  <button type="button" aria-label="Sluiten">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-  </button>
+  <button type="button" aria-label="Sluiten">×</button>
   <img alt="">
 </dialog>
 
