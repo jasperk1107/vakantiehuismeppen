@@ -299,7 +299,7 @@
   .board-note { margin-top: 30px; max-width: 24em; color: rgba(243, 239, 228, .78); }
   .menu { list-style: none; margin: 0; padding: 0; font-family: var(--hand); font-size: clamp(1.45rem, 2.4vw, 1.85rem); line-height: 1.2; }
   .menu li { display: flex; align-items: baseline; gap: 12px; padding: 11px 0; }
-  .menu li::before { content: "✳"; font-family: var(--body); font-size: .6em; color: var(--sage); transform: translateY(-.2em); }
+  .menu li::before { content: ""; flex: none; width: 7px; height: 7px; border: 1.5px solid var(--sage); border-radius: 50%; transform: translateY(-.15em); }
   .menu b { font-weight: 700; white-space: nowrap; }
   .menu i { flex: 1; border-bottom: 2px dotted rgba(243, 239, 228, .35); transform: translateY(-.25em); min-width: 20px; }
   .menu span { font-family: var(--body); font-size: .98rem; color: rgba(243, 239, 228, .8); text-align: right; }
@@ -723,7 +723,7 @@
   @keyframes ping { to { transform: scale(2.8); opacity: 0; } }
   .hero-urgency { animation-delay: .24s; }
 
-  .demo-bar { margin: 0; max-width: none; padding: 8px 20px; background: #ffe3ea; color: #7d2340; font-size: .9rem; font-weight: 600; text-align: center; }
+  .demo-bar { margin: 0; max-width: none; padding: 5px 20px; background: transparent; color: var(--ink-soft); font-size: .8rem; text-align: center; }
   .rev-who { position: relative; }
   .rev-google { width: 22px; height: 22px; margin-left: auto; flex: none; }
 
@@ -749,13 +749,32 @@
   .hero-rating strong { color: var(--ink); font-weight: 700; }
   .hero-google { width: 20px; height: 20px; flex: none; }
   .hero-rating .rev-stars svg { width: 15px; height: 15px; color: var(--oak); }
+  .pano { border-radius: 16px; overflow: hidden; margin-bottom: 16px; aspect-ratio: 32 / 9; background: var(--line); }
+  .pano img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2, .7, .2, 1); }
+  .pano:hover img { transform: scale(1.03); }
+  @media (max-width: 900px) { .pano { aspect-ratio: 16 / 7; margin-bottom: 10px; } }
+  /* ---------- weekenddagen in de kalender ---------- */
+  .day.wknd:not([disabled]):not(.pick):not(.range) { background: #fdf2e3; border-color: #ecc998; }
+  .day.wknd:not([disabled]):not(.pick):not(.range) .p { color: #9a6524; }
+  .legend .l-wk i { background: #fdf2e3; border-color: #ecc998; }
+  @media (hover: hover) {
+    .day.wknd:not([disabled])::before {
+      content: "Weekenden zijn vaak snel gereserveerd";
+      position: absolute; left: 50%; bottom: calc(100% + 8px); z-index: 5;
+      transform: translate(-50%, 4px);
+      padding: 6px 10px; border-radius: 8px;
+      background: var(--ink); color: #fff;
+      font-size: .78rem; font-weight: 500; line-height: 1.2; white-space: nowrap;
+      opacity: 0; pointer-events: none;
+      transition: opacity .2s var(--ease), transform .2s var(--ease);
+    }
+    .day.wknd:not([disabled]):hover::before, .day.wknd:not([disabled]):focus-visible::before { opacity: 1; transform: translate(-50%, 0); }
+  }
 </style>
 </head>
 
 <body>
 <script>document.documentElement.classList.add('js');</script>
-
-<p class="demo-bar" id="demo-bar" hidden>Voorbeeldversie voor de familie. De reviews en de score zijn voorbeeldtekst.</p>
 
 <header class="wrap nav">
   <nav class="nav-links" aria-label="Hoofdmenu">
@@ -874,7 +893,7 @@
         </div>
         <button type="button" class="g-all" data-open-gallery>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
-          Bekijk alle <span data-count>21</span> foto's
+          Bekijk alle <span data-count>22</span> foto's
         </button>
       </div>
 
@@ -937,6 +956,9 @@
         <p class="around-text">Het huisje staat in hartje Meppen, direct aan wandel- en fietsroutes. Voor een dagje uit zit je in de buurt van Wildlands in Emmen, Kamp Westerbork en museumdorp Orvelte.</p>
       </div>
 
+      <figure class="pano reveal" data-full="img/foto-22.jpg" data-caption="Meppen van boven, met het bos erachter">
+        <img src="img/foto-22.jpg" width="1920" height="540" loading="lazy" alt="Luchtfoto van Meppen: huizen tussen de bomen, met het bos erachter">
+      </figure>
       <div class="mosaic reveal">
         <figure class="m1" data-full="img/foto-18.jpg" data-caption="De heide bij zonsopkomst"><img src="img/foto-18.jpg" width="1400" height="933" loading="lazy" alt="Bloeiende heide bij zonsopkomst"></figure>
         <figure class="m2" data-full="img/foto-19.jpg" data-caption="Schotse hooglander in het water"><img src="img/foto-19.jpg" width="1050" height="1400" loading="lazy" alt="Schotse hooglander die tot zijn schouders in het water staat"></figure>
@@ -997,7 +1019,7 @@
       <div class="book-head reveal">
         <p class="eyebrow">Beschikbaarheid en prijs</p>
         <h2>Kies je dagen</h2>
-        <p>Je betaalt € <span data-prijs>105</span> per nacht, of € <span data-weekprijs>650</span> voor een hele week. Beddengoed en schoonmaak zijn inbegrepen. Tik op je aankomstdag en daarna op je vertrekdag, dan zie je meteen wat je verblijf kost.</p>
+        <p>Je overnacht al vanaf € <span data-prijs>105</span> per nacht, zonder extra toeslagen. Een hele week kost € <span data-weekprijs>650</span>. Tik op je aankomstdag en daarna op je vertrekdag, dan zie je meteen wat je verblijf kost.</p>
       </div>
 
       <div class="book">
@@ -1007,6 +1029,7 @@
               <li><i></i>Beschikbaar</li>
               <li class="l-sel"><i></i>Jouw verblijf</li>
               <li class="l-off"><i></i>Bezet</li>
+              <li class="l-wk"><i></i>Weekend, vaak snel gereserveerd</li>
             </ul>
             <div class="cal-nav">
               <button type="button" id="cal-prev" aria-label="Vorige maand">
@@ -1264,9 +1287,6 @@
       robots.name = 'robots'; robots.content = 'noindex';
       document.head.appendChild(robots);
     }
-    if (sample) {
-      document.getElementById('demo-bar').hidden = false;
-    }
     if (!list.length) return;
 
     var star = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5l-5.9 3.1 1.2-6.5L2.5 9.5l6.6-.9z"/></svg>';
@@ -1280,7 +1300,6 @@
       var isGoogle = /google/i.test(r.bron || '');
       var meta = [r.plaats, r.datum, (r.bron && !isGoogle) ? 'via ' + r.bron : ''].filter(Boolean).map(esc).join(' · ');
       return '<figure class="rev">' +
-        (sample ? '<span class="rev-badge">Voorbeeld</span>' : '') +
         '<div class="rev-who"><span class="rev-avatar" aria-hidden="true">' + esc((r.naam || '?').charAt(0).toUpperCase()) + '</span>' +
         '<div><div class="rev-name">' + esc(r.naam) + '</div>' + (meta ? '<div class="rev-meta">' + meta + '</div>' : '') + '</div>' +
         (isGoogle ? google : '') + '</div>' +
@@ -1292,7 +1311,7 @@
     document.getElementById('rev-score').innerHTML = '<strong>' + avg + '</strong> van 5' + (sample ? '' : ', uit ' + list.length + (list.length === 1 ? ' review' : ' reviews'));
     var note = document.getElementById('rev-note');
     note.textContent = 'Dit zijn voorbeeldreviews. Je ziet ze alleen in de voorbeeldversie. Zet echte reviews in reviews.js en dit blok komt op de gewone pagina.';
-    note.hidden = !sample;
+    note.hidden = true;
     document.getElementById('reviews').hidden = false;
 
     // score boven de titel
@@ -1365,7 +1384,9 @@
     for (var i = 0; i < lead; i++) h += '<span></span>';
     for (var d = 1; d <= count; d++) {
       var k = y + '-' + pad(m + 1) + '-' + pad(d);
-      h += '<button type="button" class="day" data-date="' + k + '"><span class="n">' + d + '</span><span class="p">€' + price(k) + '</span></button>';
+      var wd = new Date(y, m, d).getDay();
+      var wk = (wd === 5 || wd === 6 || wd === 0);
+      h += '<button type="button" class="day' + (wk ? ' wknd' : '') + '" data-date="' + k + '"><span class="n">' + d + '</span><span class="p">€' + price(k) + '</span></button>';
     }
     return h + '</div></div>';
   }
@@ -1401,7 +1422,7 @@
       else if (isPick) label += ', je vertrekdag';
       else if (!clickable) label += booked ? ', bezet' : ', niet beschikbaar';
       else if (booked) label += ', te kiezen als vertrekdag';
-      else label += ', ' + euro.format(price(k)) + ' per nacht';
+      else label += ', ' + euro.format(price(k)) + ' per nacht' + (btn.classList.contains('wknd') ? ', weekend, vaak snel gereserveerd' : '');
       btn.querySelector('.p').style.visibility = (booked && !isPick) ? 'hidden' : '';
       btn.setAttribute('aria-label', label);
     });
