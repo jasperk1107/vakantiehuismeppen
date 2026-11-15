@@ -498,7 +498,7 @@
   /* ---------- beweging ---------- */
   .js .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1); }
   .js .reveal.in { opacity: 1; transform: none; }
-  .hero .eyebrow, .hero h1, .hero .lead, .hero-cta, .hero-price, .hero-art { animation: rise .9s cubic-bezier(.2, .7, .2, 1) both; }
+  .hero .eyebrow, .hero h1, .hero .lead, .hero-urgency, .hero-cta, .hero-price, .hero-art { animation: rise .9s cubic-bezier(.2, .7, .2, 1) both; }
   .hero h1 { animation-delay: .08s; }
   .hero .lead { animation-delay: .18s; }
   .hero-cta { animation-delay: .28s; }
@@ -685,14 +685,54 @@
   .wordmark b { font-weight: inherit; }
   .g-tile:last-child .g-chip { bottom: auto; top: 12px; }
   .nav { padding-left: 10px; }
-  .hero-logo { position: absolute; right: -18px; top: 5%; width: 156px; height: 156px; border-radius: 50%; box-shadow: 0 18px 34px -18px rgba(36, 40, 42, .6), 0 0 0 5px var(--cream); }
+  .hero-logo { position: absolute; right: -22px; top: 4%; width: 172px; height: 172px; border-radius: 50%; box-shadow: 0 0 0 5px var(--paper), 0 0 0 6.5px rgba(44, 106, 112, .5), 0 0 0 11px rgba(251, 248, 241, .55), 0 22px 40px -18px rgba(36, 40, 42, .65); }
   .f-brand .wordmark img { width: 76px; height: 76px; }
   @media (max-width: 900px) {
     .nav { padding-left: 9px; }
     .wordmark { font-size: .95rem; gap: 8px; }
     .nav .btn { padding: 9px 13px; gap: 7px; }
     .wordmark img { width: 40px; height: 40px; }
-    .hero-logo { width: 116px; height: 116px; right: -6px; }
+    .hero-logo { width: 122px; height: 122px; right: -4px; }
+  }
+  /* ---------- header met logo in het midden ---------- */
+  .nav { display: grid; grid-template-columns: 1fr auto 1fr; padding: 9px 10px 9px 26px; }
+  .nav-links { justify-self: start; }
+  .nav-wa { justify-self: end; }
+  .nav-logo { position: relative; display: block; width: 96px; height: 46px; }
+  .nav-logo img {
+    position: absolute; left: 0; top: 50%; width: 96px; height: 96px;
+    transform: translateY(-50%); border-radius: 50%;
+    box-shadow: 0 0 0 4px var(--paper), 0 0 0 5.5px rgba(44, 106, 112, .55), 0 0 0 9px rgba(251, 248, 241, .6), 0 16px 28px -14px rgba(36, 40, 42, .6);
+    transition: transform .4s var(--ease);
+  }
+  .nav-logo:hover img { transform: translateY(-50%) scale(1.05); }
+
+  /* ---------- score en schaarste in de hero ---------- */
+  .hero-rating { display: flex; align-items: center; gap: 8px; }
+  .hero-rating svg { width: 18px; height: 18px; color: var(--oak); flex: none; }
+  .hero-rating a { text-decoration: none; }
+  .hero-rating a:hover { text-decoration: underline; text-underline-offset: 5px; }
+  .hero-urgency {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin: -8px 0 22px; padding: 8px 14px 8px 12px;
+    border-radius: 999px; background: #fdeef1; color: #8f2947;
+    font-size: .95rem; font-weight: 600; max-width: none;
+  }
+  .hero-urgency i { position: relative; width: 9px; height: 9px; flex: none; border-radius: 50%; background: var(--oleander); }
+  .hero-urgency i::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--oleander); animation: ping 1.8s ease-out infinite; }
+  @keyframes ping { to { transform: scale(2.8); opacity: 0; } }
+  .hero-urgency { animation-delay: .24s; }
+
+  .demo-bar { margin: 0; max-width: none; padding: 8px 20px; background: #ffe3ea; color: #7d2340; font-size: .9rem; font-weight: 600; text-align: center; }
+  .rev-who { position: relative; }
+  .rev-google { width: 22px; height: 22px; margin-left: auto; flex: none; }
+
+  @media (max-width: 900px) {
+    .nav { grid-template-columns: auto 1fr; padding: 8px 9px 8px 12px; }
+    .nav-links { display: none; }
+    .nav-logo { width: 66px; height: 44px; }
+    .nav-logo img { width: 66px; height: 66px; }
+    .hero-urgency { font-size: .9rem; }
   }
 </style>
 </head>
@@ -700,17 +740,21 @@
 <body>
 <script>document.documentElement.classList.add('js');</script>
 
+<p class="demo-bar" id="demo-bar" hidden>Voorbeeldversie voor de familie. De reviews, de score en de boekingstimer zijn voorbeeldtekst.</p>
+
 <header class="wrap nav">
-  <a class="wordmark" href="#top"><img src="img/logo.jpg" width="600" height="600" alt=""><b>Even naar Meppen<span>.</span></b></a>
   <nav class="nav-links" aria-label="Hoofdmenu">
     <a href="#ijssalon">De ijssalon</a>
     <a href="#omgeving">Omgeving</a>
     <a href="#boeken">Beschikbaarheid</a>
-    <a class="btn btn-wa" href="https://wa.me/31622561676?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20vakantiehuisje%20Even%20naar%20Meppen." target="_blank" rel="noopener" aria-label="Stuur ons een WhatsApp-bericht">
+  </nav>
+  <a class="nav-logo" href="#top" aria-label="Even naar Meppen, terug naar boven">
+    <img src="img/logo.jpg" width="600" height="600" alt="Logo Even naar Meppen, vakantiehuisje: rust, natuur, genieten">
+  </a>
+  <a class="btn btn-wa nav-wa" href="https://wa.me/31622561676?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20vakantiehuisje%20Even%20naar%20Meppen." target="_blank" rel="noopener" aria-label="Stuur ons een WhatsApp-bericht">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       <span class="wa-long">Stuur ons een WhatsApp-bericht</span><span class="wa-short">WhatsApp</span>
     </a>
-  </nav>
 </header>
 
 <main id="top">
@@ -719,9 +763,10 @@
   <div class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow">Brinken 9 · Meppen · Drenthe</p>
+        <p class="eyebrow hero-rating" id="hero-rating">Vakantiehuisje voor twee, in hartje Meppen</p>
         <h1>Vakantiehuisje <em>'Even naar Meppen'</em></h1>
         <p class="lead">Je logeert met z'n tweeën in de oude ijssalon, in het hartje van Meppen, een authentiek Drents dorpje. De pelletkachel brandt en door de tuindeuren kijk je op het rieten dak van de boerderij aan de overkant.</p>
+        <p class="hero-urgency" id="hero-urgency"><i aria-hidden="true"></i><span>Er is maar één huisje, dus elke nacht is maar één keer te boeken.</span></p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#boeken">
             Controleer beschikbaarheid
@@ -855,7 +900,7 @@
         <p>Het terras ligt achter een houten schutting en een heg, dus je zit uit het zicht van de straat. Er staat een tuintafel en er zijn twee parasols voor als de zon doorkomt.</p>
         <ul class="ticks">
           <li>Je loopt vanuit de woonkamer door de tuindeuren naar buiten.</li>
-          <li>Je fietsen zet je droog weg in de schuur.</li>
+          <li>Je fietsen zet je veilig in de schuur.</li>
           <li>Over de heg zie je het rieten dak van de boerderij aan de overkant.</li>
         </ul>
       </div>
@@ -958,7 +1003,7 @@
             <ul>
               <li>Het huisje is voor 2 personen. Er staat een slaapbank voor een eventuele derde persoon.</li>
               <li>Beddengoed, handdoeken en schoonmaak zijn bij de prijs inbegrepen.</li>
-              <li>Je fietsen zet je in de schuur.</li>
+              <li>Je fietsen zet je veilig in de schuur.</li>
               <li>Huisdieren zijn niet toegestaan.</li>
             </ul>
           </div>
@@ -1177,40 +1222,61 @@
     if (Math.abs(dx) > 45) show(current + (dx < 0 ? 1 : -1));
   });
 
-  /* ---------- reviews ---------- */
+  /* ---------- reviews, score en schaarste ---------- */
   (function () {
     var list = window.REVIEWS || [];
     var local = location.protocol === 'file:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+    // Voorbeeldversie: alleen via de link met ?voorbeeld erachter (of lokaal). Niet voor zoekmachines.
+    var demo = /[?&]voorbeeld\b/.test(location.search) || (local && !list.length);
     var sample = false;
-    if (!list.length && local) {
+    if (demo && !list.length) {
       sample = true;
       list = [
-        { naam: 'Voorbeeldgast', plaats: 'Zwolle', datum: 'oktober 2026', sterren: 5, bron: 'Google', tekst: 'Hier komt de tekst van een echte gast. Twee of drie zinnen over het huisje, het terras of de omgeving lezen het prettigst.' },
-        { naam: 'Voorbeeldgast', plaats: 'Utrecht', datum: 'september 2026', sterren: 5, bron: 'Google', tekst: 'Een tweede review, zodat je ziet hoe het blok eruitziet met kaarten naast elkaar.' },
-        { naam: 'Voorbeeldgast', plaats: 'Groningen', datum: 'augustus 2026', sterren: 4, bron: 'Airbnb', tekst: 'Een derde review met vier sterren. De score rechtsboven rekent de pagina zelf uit.' }
+        { naam: 'Sanne & Mark', sterren: 5, bron: 'Google', tekst: 'Wat een heerlijk plekje om even helemaal tot rust te komen! Bij aankomst werden we super hartelijk ontvangen door Marja en Peter, waardoor we ons meteen thuis voelden. Het huisje is ontzettend sfeervol, brandschoon en heeft een heerlijk bed. ’s Ochtends met een kop koffie op het terras zitten terwijl je alleen maar vogeltjes hoort, voelt echt als een mini-vakantie. Echt een aanrader!' },
+        { naam: 'Hendrik', sterren: 5, bron: 'Google', tekst: 'Wij hebben hier een lang weekend gezeten om te fietsen en te wandelen in de omgeving, en daar is Even naar Meppen de perfecte uitvalsbasis voor. Meppen zelf is een prachtig, authentiek Drents dorpje en je loopt zo de bossen in of richting het Mantingerveld. Het verblijf heeft een fijne eigen woonkamer met een goede bank en prima douche. Wij komen zeker nog eens terug!' },
+        { naam: 'Marloes', sterren: 5, bron: 'Google', tekst: 'Jammer genoeg waren we er maar één nachtje, want we hadden hier makkelijk een paar dagen langer willen blijven. De communicatie vooraf verliep heel soepel en het welkom was enorm gastvrij. Het verblijf ziet eruit om door een ringetje te halen, met verse bloemen op tafel en uitzicht op het groen. Alles wat je nodig hebt voor een ontspannen nacht weg is aanwezig. Dank aan Marja en Peter voor de goede zorgen!' }
       ];
+    }
+
+    if (demo) {
+      var robots = document.createElement('meta');
+      robots.name = 'robots'; robots.content = 'noindex';
+      document.head.appendChild(robots);
+    }
+    if (sample) {
+      document.getElementById('demo-bar').hidden = false;
+      document.querySelector('#hero-urgency span').textContent = 'Reageer snel, nog maar 3 uur om te boeken';
     }
     if (!list.length) return;
 
     var star = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5l-5.9 3.1 1.2-6.5L2.5 9.5l6.6-.9z"/></svg>';
+    var google = '<svg class="rev-google" viewBox="0 0 48 48" role="img" aria-label="Google"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>';
     function esc(t) { var d = document.createElement('div'); d.textContent = t == null ? '' : String(t); return d.innerHTML; }
     function stars(n) { var h = ''; for (var i = 1; i <= 5; i++) h += i <= n ? star : star.replace('<svg', '<svg class="off"'); return h; }
 
     var sum = 0;
     document.getElementById('rev-grid').innerHTML = list.map(function (r) {
       var n = Math.max(1, Math.min(5, Math.round(r.sterren || 5))); sum += n;
-      var meta = [r.plaats, r.datum, r.bron ? 'via ' + r.bron : ''].filter(Boolean).map(esc).join(' · ');
+      var isGoogle = /google/i.test(r.bron || '');
+      var meta = [r.plaats, r.datum, (r.bron && !isGoogle) ? 'via ' + r.bron : ''].filter(Boolean).map(esc).join(' · ');
       return '<figure class="rev">' +
         (sample ? '<span class="rev-badge">Voorbeeld</span>' : '') +
         '<div class="rev-who"><span class="rev-avatar" aria-hidden="true">' + esc((r.naam || '?').charAt(0).toUpperCase()) + '</span>' +
-        '<div><div class="rev-name">' + esc(r.naam) + '</div><div class="rev-meta">' + meta + '</div></div></div>' +
+        '<div><div class="rev-name">' + esc(r.naam) + '</div>' + (meta ? '<div class="rev-meta">' + meta + '</div>' : '') + '</div>' +
+        (isGoogle ? google : '') + '</div>' +
         '<div class="rev-stars" role="img" aria-label="' + n + ' van 5 sterren">' + stars(n) + '</div>' +
         '<blockquote>' + esc(r.tekst) + '</blockquote></figure>';
     }).join('');
-    var avg = (sum / list.length).toFixed(1).replace('.', ',');
-    document.getElementById('rev-score').innerHTML = '<strong>' + avg + '</strong> van 5, uit ' + list.length + (list.length === 1 ? ' review' : ' reviews');
-    document.getElementById('rev-note').hidden = !sample;
+
+    var avg = sample ? '4,86' : (sum / list.length).toFixed(1).replace('.', ',');
+    document.getElementById('rev-score').innerHTML = '<strong>' + avg + '</strong> van 5' + (sample ? '' : ', uit ' + list.length + (list.length === 1 ? ' review' : ' reviews'));
+    var note = document.getElementById('rev-note');
+    note.textContent = 'Dit zijn voorbeeldreviews. Je ziet ze alleen in de voorbeeldversie. Zet echte reviews in reviews.js en dit blok komt op de gewone pagina.';
+    note.hidden = !sample;
     document.getElementById('reviews').hidden = false;
+
+    // score boven de titel
+    document.getElementById('hero-rating').innerHTML = star + '<a href="#reviews">Beoordeeld ' + avg + ' door gasten</a>';
   })();
 
   /* ---------- vaste knop verbergen bij de kalender ---------- */
