@@ -6,7 +6,15 @@
   { naam: "Annemiek", plaats: "Zwolle", datum: "oktober 2026", sterren: 5, bron: "Google",
     tekst: "Wat de gast schreef." }
 */
+/*
+  Schakelaar voor alle reviews op de pagina: het blok "Wat gasten zeggen" en de score boven de titel.
+  Zet op true en ze staan weer online. De reviews hieronder blijven bewaard.
+*/
+window.REVIEWS_TONEN = false;
+
 window.REVIEWS = [
+  { naam: "Jasper", sterren: 5, bron: "Google",
+    tekst: "Heerlijk overnacht! Unieke accommodatie in de oude ijssalon. Bedankt Marja & Peter voor de gastvrijheid!" },
   { naam: "Sanne & Mark", sterren: 5, bron: "Google",
     tekst: "Wat een heerlijk plekje om even helemaal tot rust te komen! Bij aankomst werden we super hartelijk ontvangen door Marja en Peter, waardoor we ons meteen thuis voelden. Het huisje is ontzettend sfeervol, brandschoon en heeft een heerlijk bed. ’s Ochtends met een kop koffie op het terras zitten terwijl je alleen maar vogeltjes hoort, voelt echt als een mini-vakantie. Echt een aanrader!" },
   { naam: "Hendrik", sterren: 5, bron: "Google",
